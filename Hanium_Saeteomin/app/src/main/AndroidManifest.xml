@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_today_word"/>
-        <activity android:name=".activity_best_word"/>
+        <activity android:name=".fragment_home.todayword.ActivityTodayWord"/>
+        <activity android:name=".fragment_home.bestword.ActivityBestWord"/>
     </application>
 
 </manifest>

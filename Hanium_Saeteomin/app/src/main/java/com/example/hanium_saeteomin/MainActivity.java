@@ -5,22 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.hanium_saeteomin.bottomnavi.FragmentBoard;
+import com.example.hanium_saeteomin.bottomnavi.FragmentChatting;
+import com.example.hanium_saeteomin.bottomnavi.FragmentHome;
+import com.example.hanium_saeteomin.bottomnavi.FragmentMyPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private Fragment fragment_home = new fragment_home();
-    private Fragment fragment_chatting = new fragment_chatting();
-    private Fragment fragment_board = new fragment_board();
-    private Fragment fragment_mypage = new fragment_mypage();
+    private Fragment fragment_home = new FragmentHome();
+    private Fragment fragment_chatting = new FragmentChatting();
+    private Fragment fragment_board = new FragmentBoard();
+    private Fragment fragment_mypage = new FragmentMyPage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

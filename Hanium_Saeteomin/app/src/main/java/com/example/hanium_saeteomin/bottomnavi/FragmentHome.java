@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin;
+package com.example.hanium_saeteomin.bottomnavi;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +13,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hanium_saeteomin.fragment_home.bestword.ActivityBestWord;
+import com.example.hanium_saeteomin.fragment_home.todayword.ActivityTodayWord;
+import com.example.hanium_saeteomin.fragment_home.AdapterQuiz;
+import com.example.hanium_saeteomin.fragment_home.AdapterVpRecommendedNewWord;
+import com.example.hanium_saeteomin.fragment_home.FragmentVpRecommendedNewWord;
+import com.example.hanium_saeteomin.R;
+
 import java.util.ArrayList;
 
-public class fragment_home extends Fragment {
+public class FragmentHome extends Fragment {
     ViewPager viewPager;
-    adapter_vp_recommended_new_word fragmentAdapter;
+    AdapterVpRecommendedNewWord fragmentAdapter;
     ArrayList<Integer> listImage;
     ArrayList<String> listTextview;
-    public fragment_home() {
+    public FragmentHome() {
         // Required empty public constructor
     }
 
@@ -44,7 +51,7 @@ public class fragment_home extends Fragment {
         //뷰페이저 리스트에 아이템 추
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager = view.findViewById(R.id.vp_recommended_new_word);
-        fragmentAdapter = new adapter_vp_recommended_new_word(getChildFragmentManager(),getActivity().getApplicationContext());
+        fragmentAdapter = new AdapterVpRecommendedNewWord(getChildFragmentManager(),getActivity().getApplicationContext());
         viewPager.setAdapter(fragmentAdapter);
 
         viewPager.setClipToPadding(false);
@@ -55,7 +62,7 @@ public class fragment_home extends Fragment {
         viewPager.setPageMargin(margin/2);
 
         for (int i = 0; i < listImage.size(); i++) {
-            fragment_vp_recommended_new_word fragment_vp_recommended_new_word = new fragment_vp_recommended_new_word();
+            FragmentVpRecommendedNewWord fragment_vp_recommended_new_word = new FragmentVpRecommendedNewWord();
             Bundle bundle = new Bundle();
             bundle.putInt("imgRes", listImage.get(i));
             bundle.putString("tvRes",listTextview.get(i));
@@ -63,7 +70,6 @@ public class fragment_home extends Fragment {
             fragmentAdapter.addItem(fragment_vp_recommended_new_word);
         }
         fragmentAdapter.notifyDataSetChanged();
-        Log.d("왜 안찍","ㅡㅡ");
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
         {
@@ -78,10 +84,10 @@ public class fragment_home extends Fragment {
             {
                 //Log.d("ITPANGPANG","onPageSelected : "+position);
                 if(position==0){
-                    Intent intent = new Intent(getContext(),activity_today_word.class);
+                    Intent intent = new Intent(getContext(), ActivityTodayWord.class);
                     startActivity(intent);
                 }else if(position ==1){
-                    Intent intent = new Intent(getContext(),activity_best_word.class);
+                    Intent intent = new Intent(getContext(), ActivityBestWord.class);
                     startActivity(intent);
                 }
             }
@@ -104,7 +110,7 @@ public class fragment_home extends Fragment {
         }
         RecyclerView recyclerView = view.findViewById(R.id.rv_quiz) ;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext())) ;
-        adapter_quiz adapter = new adapter_quiz(list) ;
+        AdapterQuiz adapter = new AdapterQuiz(list) ;
         recyclerView.setAdapter(adapter) ;
 
 
@@ -115,7 +121,7 @@ public class fragment_home extends Fragment {
         }
         RecyclerView recyclerView2 = view.findViewById(R.id.rv_recent_word) ;
         recyclerView2.setLayoutManager(new LinearLayoutManager(getContext())) ;
-        adapter_quiz adapter2 = new adapter_quiz(list) ;
+        AdapterQuiz adapter2 = new AdapterQuiz(list) ;
         recyclerView2.setAdapter(adapter2) ;
 
         return view;

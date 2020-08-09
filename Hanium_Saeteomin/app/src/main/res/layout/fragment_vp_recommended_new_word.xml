@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="210dp"
-    tools:context=".fragment_vp_recommended_new_word">
+    tools:context=".fragment_home.FragmentVpRecommendedNewWord">
 
     <ImageView
         android:id="@+id/img_reccomended_new_word"

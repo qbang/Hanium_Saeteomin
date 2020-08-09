@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin;
+package com.example.hanium_saeteomin.fragment_home;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -6,11 +6,13 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class dialog_quiz {
+import com.example.hanium_saeteomin.R;
+
+public class DialogQuiz {
 
     private Context context;
 
-    public dialog_quiz(Context context) {
+    public DialogQuiz(Context context) {
         this.context = context;
     }
 

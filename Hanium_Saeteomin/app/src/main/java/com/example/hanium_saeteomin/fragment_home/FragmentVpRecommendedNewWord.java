@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin;
+package com.example.hanium_saeteomin.fragment_home;
 
 import android.os.Bundle;
 
@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class fragment_vp_recommended_new_word extends Fragment {
+import com.example.hanium_saeteomin.R;
 
-    public fragment_vp_recommended_new_word() {
+public class FragmentVpRecommendedNewWord extends Fragment {
+
+    public FragmentVpRecommendedNewWord() {
     }
 
 

@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin;
+package com.example.hanium_saeteomin.bottomnavi;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hanium_saeteomin.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link fragment_chatting#newInstance} factory method to
+ * Use the {@link FragmentChatting#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragment_chatting extends Fragment {
+public class FragmentChatting extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class fragment_chatting extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public fragment_chatting() {
+    public FragmentChatting() {
         // Required empty public constructor
     }
 
@@ -37,8 +39,8 @@ public class fragment_chatting extends Fragment {
      * @return A new instance of fragment fragment_chatting.
      */
     // TODO: Rename and change types and number of parameters
-    public static fragment_chatting newInstance(String param1, String param2) {
-        fragment_chatting fragment = new fragment_chatting();
+    public static FragmentChatting newInstance(String param1, String param2) {
+        FragmentChatting fragment = new FragmentChatting();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

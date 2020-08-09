@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin;
+package com.example.hanium_saeteomin.fragment_home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-public class adapter_vp_recommended_new_word extends FragmentPagerAdapter {
+public class AdapterVpRecommendedNewWord extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
     Context context;
-    adapter_vp_recommended_new_word(FragmentManager fm, Context context) {
+    public AdapterVpRecommendedNewWord(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
     }
@@ -45,7 +45,7 @@ public class adapter_vp_recommended_new_word extends FragmentPagerAdapter {
         return fragments.size();
     }
 
-    void addItem(Fragment fragment) {
+    public void addItem(Fragment fragment) {
         fragments.add(fragment);
     }
 }
