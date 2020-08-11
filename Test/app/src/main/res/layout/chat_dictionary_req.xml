@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px">
+
+        <TextView
+            android:id="@+id/request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30px"
+            android:paddingBottom="30px"
+            android:layout_marginLeft="200px"
+            android:layout_marginRight="200px"
+            android:paddingLeft="30px"
+            android:text="asfdasdf"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/colorPrimary"
+            android:gravity="right"
+            android:background="@drawable/chat_req"
+            android:layout_alignParentRight="true" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    </RelativeLayout>
+</LinearLayout>
