@@ -9,19 +9,19 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.hanium_saeteomin.bottomnavi.FragmentBoard;
-import com.example.hanium_saeteomin.bottomnavi.FragmentChatting;
-import com.example.hanium_saeteomin.bottomnavi.FragmentHome;
-import com.example.hanium_saeteomin.bottomnavi.FragmentMyPage;
+import com.example.hanium_saeteomin.bottomnavigation.BoardFragment;
+import com.example.hanium_saeteomin.bottomnavigation.ChattingFragment;
+import com.example.hanium_saeteomin.bottomnavigation.HomeFragment;
+import com.example.hanium_saeteomin.bottomnavigation.MyPageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private Fragment fragment_home = new FragmentHome();
-    private Fragment fragment_chatting = new FragmentChatting();
-    private Fragment fragment_board = new FragmentBoard();
-    private Fragment fragment_mypage = new FragmentMyPage();
+    private Fragment fragment_home = new HomeFragment();
+    private Fragment fragment_chatting = new ChattingFragment();
+    private Fragment fragment_board = new BoardFragment();
+    private Fragment fragment_mypage = new MyPageFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
