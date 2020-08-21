@@ -20,8 +20,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.hanium_saeteomin.R;
-import com.example.hanium_saeteomin.fragmentchat.ChatDictionaryData;
-import com.example.hanium_saeteomin.fragmentchat.ChatQuizActivity;
+import com.example.hanium_saeteomin.chatfragment.ChatDictionaryData;
+import com.example.hanium_saeteomin.chatfragment.ChatQuizActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

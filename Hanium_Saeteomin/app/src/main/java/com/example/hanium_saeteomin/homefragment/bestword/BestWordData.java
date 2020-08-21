@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin.fragmenthome.bestword;
+package com.example.hanium_saeteomin.homefragment.bestword;
 
 public class BestWordData {
     private String wordName;

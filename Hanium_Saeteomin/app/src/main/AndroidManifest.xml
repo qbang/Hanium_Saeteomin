@@ -19,9 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragmenthome.todayword.ActivityTodayWord" />
-        <activity android:name=".fragmenthome.bestword.BestWordActivity" />
-        <activity android:name=".fragmentchat.ChatQuizActivity" />
+        <activity android:name=".homefragment.todayword.TodayWordActivity" />
+        <activity android:name=".homefragment.bestword.BestWordActivity" />
+        <activity android:name=".chatfragment.ChatQuizActivity" />
         <activity android:name=".friendlist.FriendListActivity"/>
 
     </application>

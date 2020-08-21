@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.hanium_saeteomin.R;
-import com.example.hanium_saeteomin.fragmentboard.QuestionFeedAdapter;
+import com.example.hanium_saeteomin.boardfragment.QuestionFeedAdapter;
 
 public class BoardFragment extends Fragment {
     ListView listView;

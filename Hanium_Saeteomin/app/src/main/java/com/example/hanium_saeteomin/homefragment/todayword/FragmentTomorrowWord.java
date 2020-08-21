@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin.fragmenthome.todayword;
+package com.example.hanium_saeteomin.homefragment.todayword;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

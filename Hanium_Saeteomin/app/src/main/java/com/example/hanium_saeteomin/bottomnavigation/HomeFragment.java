@@ -13,11 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hanium_saeteomin.fragmenthome.bestword.BestWordActivity;
-import com.example.hanium_saeteomin.fragmenthome.todayword.ActivityTodayWord;
-import com.example.hanium_saeteomin.fragmenthome.AdapterQuiz;
-import com.example.hanium_saeteomin.fragmenthome.AdapterVpRecommendedNewWord;
-import com.example.hanium_saeteomin.fragmenthome.VpRecommendedNewWordFragment;
+import com.example.hanium_saeteomin.homefragment.bestword.BestWordActivity;
+import com.example.hanium_saeteomin.homefragment.todayword.TodayWordActivity;
+import com.example.hanium_saeteomin.homefragment.AdapterQuiz;
+import com.example.hanium_saeteomin.homefragment.AdapterVpRecommendedNewWord;
+import com.example.hanium_saeteomin.homefragment.VpRecommendedNewWordFragment;
 import com.example.hanium_saeteomin.R;
 
 import java.util.ArrayList;
@@ -84,7 +84,7 @@ public class HomeFragment extends Fragment {
             {
                 //Log.d("ITPANGPANG","onPageSelected : "+position);
                 if(position==0){
-                    Intent intent = new Intent(getContext(), ActivityTodayWord.class);
+                    Intent intent = new Intent(getContext(), TodayWordActivity.class);
                     startActivity(intent);
                 }else if(position ==1){
                     Intent intent = new Intent(getContext(), BestWordActivity.class);

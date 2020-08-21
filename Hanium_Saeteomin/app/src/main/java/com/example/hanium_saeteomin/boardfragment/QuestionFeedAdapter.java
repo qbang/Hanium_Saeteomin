@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin.fragmentboard;
+package com.example.hanium_saeteomin.boardfragment;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

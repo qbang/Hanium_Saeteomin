@@ -32,6 +32,7 @@
             />
 
         <ImageButton
+            android:id="@+id/btn_calendar"
             android:layout_marginRight="20dp"
             android:layout_gravity="right"
             android:layout_width="wrap_content"

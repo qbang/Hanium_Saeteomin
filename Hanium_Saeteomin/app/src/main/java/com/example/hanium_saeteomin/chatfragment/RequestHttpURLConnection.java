@@ -1,4 +1,4 @@
-package com.example.hanium_saeteomin.fragmentchat;
+package com.example.hanium_saeteomin.chatfragment;
 
 import android.content.ContentValues;
 
