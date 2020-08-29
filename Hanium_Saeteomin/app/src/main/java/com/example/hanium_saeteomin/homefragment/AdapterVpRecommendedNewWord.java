@@ -1,11 +1,18 @@
 package com.example.hanium_saeteomin.homefragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.hanium_saeteomin.R;
 
 import java.util.ArrayList;
 
@@ -36,6 +43,7 @@ public class AdapterVpRecommendedNewWord extends FragmentPagerAdapter {
     return fragments.get(position);
 
     }
+
 
     @Override
     public int getCount() {
