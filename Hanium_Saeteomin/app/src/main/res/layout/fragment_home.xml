@@ -58,6 +58,8 @@
             android:scaleType="center"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             app:lottie_fileName="18127-book-animation.json"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent" />
@@ -88,6 +90,7 @@
             android:layout_height="100dp"
             android:layout_marginRight="50dp"
             android:scaleType="center"
+            app:lottie_loop="true"
             app:lottie_fileName="7123-loading-crown.json"
             app:layout_constraintBottom_toBottomOf="@+id/img_today_word"
             app:layout_constraintEnd_toEndOf="parent"
