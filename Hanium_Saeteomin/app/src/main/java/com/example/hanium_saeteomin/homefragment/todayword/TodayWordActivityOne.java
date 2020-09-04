@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -40,7 +42,9 @@ public class TodayWordActivityOne extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today_word_one);
 
-        RecyclerView rvTodayWord = findViewById(R.id.rv_today_word);
+        final RecyclerView rvTodayWord = findViewById(R.id.rv_today_word);
+        final TextView tv_nothing = findViewById(R.id.tv_nothing);
+
         ImageButton btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,41 +60,47 @@ public class TodayWordActivityOne extends AppCompatActivity {
         adapterTodayWord = new AdapterTodayWord(todayWordDataArrayList);
         rvTodayWord.setAdapter(adapterTodayWord);
 
-        WordData todayWordData = new WordData("갑통알","갑자기 통장을 보니 알바해야 할 것 같다.오아오아아린ㅇ라ㅓㄴ이ㅏㄹㄴㄹ아런인아러닝라ㅓㄴㄹㅇ러니ㅏㄹ");
-        todayWordDataArrayList.add(todayWordData);
-        todayWordDataArrayList.add(todayWordData);
-        todayWordDataArrayList.add(todayWordData);
-        todayWordDataArrayList.add(todayWordData);
-        todayWordDataArrayList.add(todayWordData);
-        adapterTodayWord.notifyDataSetChanged();
+        long now = System.currentTimeMillis();
+        Date mDate = new Date(now);
+        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+        String getTime = simpleDate.format(mDate);
+        TextView tv_today_date = findViewById(R.id.tv_today_date);
+        tv_today_date.setText(getTime);
 
-//        RetrofitClient retrofitClient = new RetrofitClient();
-//        //TODO 이미지 처리 어떻게 할까
-//        RequestGetTodayWord requestGetTodayWord = new RequestGetTodayWord("2020-09-01");
-//        Call<JsonArray> call = retrofitClient.apiService.GetTodayWord(requestGetTodayWord);
-//        call.enqueue(new Callback<JsonArray>() {
-//            @Override
-//            public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
-//                Log.d("today",response.body().toString());
-//                Gson gson = new Gson();
-//                JsonArray array = response.body().getAsJsonArray();
-//
-//                Log.d("today1",array.get(0).toString());
-//
-//                for(int i=0 ;i<response.body().size();i++){
-//
-//                    WordData todayWordData = gson.fromJson(array.get(i),WordData.class);
-//                    todayWordDataArrayList.add(todayWordData);
-//                    adapterTodayWord.notifyDataSetChanged();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<JsonArray> call, Throwable t) {
-//
-//            }
-//        });
+        //TODO 나중에 getTime 밑에있는 오늘의 신조어 인수로 넘겨주기
+
+        RetrofitClient retrofitClient = new RetrofitClient();
+        //TODO 이미지 처리 어떻게 할까
+        RequestGetTodayWord requestGetTodayWord = new RequestGetTodayWord("2020-09-01");
+        Call<JsonArray> call = retrofitClient.apiService.GetTodayWord(requestGetTodayWord);
+        call.enqueue(new Callback<JsonArray>() {
+            @Override
+            public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+                Log.d("today",response.body().toString());
+                Gson gson = new Gson();
+                JsonArray array = response.body().getAsJsonArray();
+                if(response.body().size()>0) {
+                    tv_nothing.setVisibility(View.GONE);
+                    rvTodayWord.setVisibility(View.VISIBLE);
+                    for (int i = 0; i < response.body().size(); i++) {
+
+                        WordData todayWordData = gson.fromJson(array.get(i), WordData.class);
+                        todayWordDataArrayList.add(todayWordData);
+                        adapterTodayWord.notifyDataSetChanged();
+                    }
+                }else{
+                    tv_nothing.setVisibility(View.VISIBLE);
+                    rvTodayWord.setVisibility(View.GONE);
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<JsonArray> call, Throwable t) {
+
+            }
+        });
 
 
         ImageButton btn_calendar = findViewById(R.id.btn_calendar);

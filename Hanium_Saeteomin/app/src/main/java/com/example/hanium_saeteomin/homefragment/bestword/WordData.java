@@ -1,27 +1,27 @@
 package com.example.hanium_saeteomin.homefragment.bestword;
 
 public class WordData {
-    private String wordName;
-    private String wordMean;
+    private String word;
+    private String word_meaning;
 
     public WordData(String wordName, String wordMean) {
-        this.wordName = wordName;
-        this.wordMean = wordMean;
+        this.word = wordName;
+        this.word_meaning = wordMean;
     }
 
     public String getWordName() {
-        return wordName;
+        return word;
     }
 
     public void setWordName(String wordName) {
-        this.wordName = wordName;
+        this.word = wordName;
     }
 
     public String getWordMean() {
-        return wordMean;
+        return word_meaning;
     }
 
     public void setWordMean(String wordMean) {
-        this.wordMean = wordMean;
+        this.word_meaning = wordMean;
     }
 }
