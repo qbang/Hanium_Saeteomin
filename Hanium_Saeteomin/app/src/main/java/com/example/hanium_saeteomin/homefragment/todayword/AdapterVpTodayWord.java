@@ -8,12 +8,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
-public class AdapterTodayWord extends FragmentPagerAdapter {
+public class AdapterVpTodayWord extends FragmentPagerAdapter {
     private static  ArrayList<Fragment> fragments = new ArrayList<>();
     private static int NUM_ITEMS = 3;
     Context context;
 
-    public AdapterTodayWord(FragmentManager fm, Context context) {
+    public AdapterVpTodayWord(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
     }

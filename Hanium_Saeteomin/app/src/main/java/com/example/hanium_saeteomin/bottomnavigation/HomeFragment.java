@@ -24,6 +24,7 @@ import com.example.hanium_saeteomin.homefragment.AdapterQuiz;
 import com.example.hanium_saeteomin.homefragment.AdapterVpRecommendedNewWord;
 import com.example.hanium_saeteomin.homefragment.VpRecommendedNewWordFragment;
 import com.example.hanium_saeteomin.R;
+import com.example.hanium_saeteomin.homefragment.todayword.TodayWordActivityOne;
 
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ public class HomeFragment extends Fragment {
         img_today_word.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),TodayWordActivity.class);
+                Intent intent = new Intent(getContext(), TodayWordActivityOne.class);
                 startActivity(intent);
             }
         });

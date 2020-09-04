@@ -1,10 +1,10 @@
 package com.example.hanium_saeteomin.homefragment.bestword;
 
-public class BestWordData {
+public class WordData {
     private String wordName;
     private String wordMean;
 
-    public BestWordData(String wordName, String wordMean) {
+    public WordData(String wordName, String wordMean) {
         this.wordName = wordName;
         this.wordMean = wordMean;
     }

@@ -13,7 +13,7 @@ import com.example.hanium_saeteomin.R;
 import java.util.ArrayList;
 
 public class BestWordActivity extends AppCompatActivity {
-    ArrayList<BestWordData> bestWordList;
+    ArrayList<WordData> bestWordList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +29,11 @@ public class BestWordActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.rv_best_word) ;
         recyclerView.setLayoutManager(new GridLayoutManager(this,2)) ;
-        bestWordList = new ArrayList<BestWordData>();
+        bestWordList = new ArrayList<WordData>();
         AdapterBestWord adapter = new AdapterBestWord(bestWordList) ;
         recyclerView.setAdapter(adapter) ;
 
-        BestWordData data = new BestWordData("뽀쟉","Apple");
+        WordData data = new WordData("뽀쟉","Apple");
 
         for(int i=0;i<6;i++){
             bestWordList.add(data);
