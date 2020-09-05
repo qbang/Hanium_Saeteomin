@@ -19,6 +19,12 @@ public interface ApiService {
     @POST("new_word")
     Call<JsonArray> GetTodayWord(@Body RequestGetTodayWord body);
 
+    @GET("quiz")
+    Call<JsonArray> GetQuizList();
+
+    @POST("quiz_result")
+    Call<JsonObject> QuizResult(@Body SendQuizResult body);
+
 //    @HTTP(method = "GET",path="login/",hasBody = true)
 //    Call<JsonObject> getLogin(@Body RequestLogin body);
 
