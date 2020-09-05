@@ -2,11 +2,29 @@ package com.example.hanium_saeteomin.boardfragment;
 
 public class FeedData {
     String board_id;
+    String user_name;
+    String img_url;
     int comment_number;
     String content;
     int good_count;
     String user_id;
     String write_date;
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getImg_url() {
+        return img_url;
+    }
+
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
+    }
 
     public String getBoard_id() {
         return board_id;

@@ -11,12 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.hanium_saeteomin.R;
 
 import java.util.ArrayList;
 
 public class QuestionFeedAdapter extends BaseAdapter {
-    private  ArrayList<QuestionFeedData> questionFeedDataList = new ArrayList<QuestionFeedData>();
+    private  ArrayList<FeedData> questionFeedDataList = new ArrayList<FeedData>();
 
     public QuestionFeedAdapter(){
 
@@ -47,38 +48,37 @@ public class QuestionFeedAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.question_feed_layout, parent, false);
         }
 
-        ImageView profileimg = (ImageView)convertView.findViewById(R.id.profileImg);
-        TextView name = (TextView)convertView.findViewById(R.id.name);
-        TextView timeline = (TextView)convertView.findViewById(R.id.timeline);
-        TextView question = (TextView)convertView.findViewById(R.id.question);
-        TextView favorite = (TextView)convertView.findViewById(R.id.favorite);
-        TextView chatNum = (TextView)convertView.findViewById(R.id.chatNum);
+        ImageView imgProfile = (ImageView)convertView.findViewById(R.id.profileImg);
+        TextView userName = (TextView)convertView.findViewById(R.id.name);
+        TextView timeLine = (TextView)convertView.findViewById(R.id.timeline);
+        TextView tvContent = (TextView)convertView.findViewById(R.id.question);
+        TextView likeCount = (TextView)convertView.findViewById(R.id.favorite);
+        TextView commentCount = (TextView)convertView.findViewById(R.id.chatNum);
 
-        QuestionFeedData questionFeedData = questionFeedDataList.get(position);
+        FeedData questionFeedData = questionFeedDataList.get(position);
 
-        profileimg.setBackground(new ShapeDrawable(new OvalShape()));
-        profileimg.setClipToOutline(true);
+        imgProfile.setBackground(new ShapeDrawable(new OvalShape()));
+        imgProfile.setClipToOutline(true);
 
-        profileimg.setImageDrawable(questionFeedData.getProfileImg());
-        name.setText(questionFeedData.getName());
-        timeline.setText(questionFeedData.getTimeline());
-        question.setText(questionFeedData.getQuestion());
-        favorite.setText(questionFeedData.getFavorite());
-        chatNum.setText(questionFeedData.getChatNum());
+        Glide.with(context).load(questionFeedData.getImg_url()).into(imgProfile);
+        userName.setText(questionFeedData.getUser_name());
+        timeLine.setText(questionFeedData.getWrite_date());
+        tvContent.setText(questionFeedData.getContent());
+        likeCount.setText(String.valueOf(questionFeedData.getGood_count()));
+        commentCount.setText(String.valueOf(questionFeedData.getComment_number()));
 
         return convertView;
     }
 
-    public void addItem(Drawable profile_img, String name, String timeline, String question, String favorite, String chatnum){
-        QuestionFeedData questionFeedData = new QuestionFeedData();
+    public void addItem(String profile_img, String name, String timeline, String question, int favorite, int chatnum){
+        FeedData questionFeedData = new FeedData();
 
-        questionFeedData.setProfileImg(profile_img);
-        questionFeedData.setName(name);
-        questionFeedData.setTimeline(timeline);
-        questionFeedData.setQuestion(question);
-        questionFeedData.setFavorite(favorite);
-        questionFeedData.setChatNum(chatnum);
-
+        questionFeedData.setImg_url(profile_img);
+        questionFeedData.setUser_name(name);
+        questionFeedData.setWrite_date(timeline);
+        questionFeedData.setContent(question);
+        questionFeedData.setGood_count(favorite);
+        questionFeedData.setComment_number(chatnum);
         questionFeedDataList.add(questionFeedData);
     }
 }

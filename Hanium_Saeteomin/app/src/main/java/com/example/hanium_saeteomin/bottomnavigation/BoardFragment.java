@@ -12,12 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.hanium_saeteomin.R;
 import com.example.hanium_saeteomin.boardfragment.FeedData;
 import com.example.hanium_saeteomin.boardfragment.QuestionFeedAdapter;
 import com.example.hanium_saeteomin.homefragment.bestword.WordData;
 import com.example.hanium_saeteomin.network.RetrofitClient;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
@@ -39,8 +41,15 @@ public class BoardFragment extends Fragment {
         FeedList = new ArrayList<FeedData>();
         listView = (ListView) view.findViewById(R.id.listview);
         listView.setAdapter(questionFeedAdapter);
-        this.addQuestionFeed();
+//        this.addQuestionFeed();
 
+        FloatingActionButton fab_add_board = view.findViewById(R.id.fab_add_board);
+        fab_add_board.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),"됨",Toast.LENGTH_SHORT).show();
+            }
+        });
         RetrofitClient retrofitClient = new RetrofitClient();
         Call<JsonArray> call = retrofitClient.apiService.GetBoardList();
         call.enqueue(new Callback<JsonArray>() {
@@ -51,7 +60,16 @@ public class BoardFragment extends Fragment {
                         Gson gson = new Gson();
                         JsonArray array = response.body().getAsJsonArray();
                         FeedData feedData = gson.fromJson(array.get(i), FeedData.class);
-                        feedData.getBoard_id();
+
+                        String url = feedData.getImg_url();
+                        String userName = feedData.getUser_name();
+                        String content = feedData.getContent();
+                        int likeCount= feedData.getGood_count();
+                        int commentCount = feedData.getComment_number();
+                        String writeDate = feedData.getWrite_date();
+
+                        questionFeedAdapter.addItem(url, userName,writeDate, content,likeCount,commentCount);
+
                         FeedList.add(feedData);
                         questionFeedAdapter.notifyDataSetChanged();
                     }
@@ -73,11 +91,6 @@ public class BoardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_board, container, false);
-    }
-    public void addQuestionFeed(){
-        for(int i =0;i<8;i++){
-            questionFeedAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.test), "홍길동", "10분전", "~~~가 뭔가요?", "5", "4");
-        }
     }
 
 }
