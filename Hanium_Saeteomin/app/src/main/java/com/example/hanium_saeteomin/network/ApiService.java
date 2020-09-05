@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ApiService {
@@ -18,6 +17,10 @@ public interface ApiService {
 
     @POST("new_word")
     Call<JsonArray> GetTodayWord(@Body RequestGetTodayWord body);
+
+    @POST("board")
+    Call<JsonArray> GetBoardList();
+
 
 //    @HTTP(method = "GET",path="login/",hasBody = true)
 //    Call<JsonObject> getLogin(@Body RequestLogin body);

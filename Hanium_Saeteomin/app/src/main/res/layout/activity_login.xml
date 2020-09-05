@@ -58,24 +58,43 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="30dp"
         android:background="@null"
-        android:hint="패스워드"
         android:text="1234"
+        android:hint="패스워드"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/et_id"
         app:layout_constraintStart_toStartOf="@+id/et_id"
         app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="120dp"
+        app:layout_constraintStart_toStartOf="@+id/et_pw"
+        app:layout_constraintTop_toBottomOf="@+id/et_pw"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동로그인"
+        app:layout_constraintLeft_toRightOf="@+id/checkbox"
+        app:layout_constraintTop_toTopOf="@+id/checkbox"
+        app:layout_constraintBottom_toBottomOf="@id/checkbox"
+        android:layout_marginLeft="5dp"
+        />
+
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_background"
         android:text="로그인"
         android:layout_marginHorizontal="60dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_pw"
-        app:layout_constraintStart_toStartOf="@+id/et_pw"
-        app:layout_constraintTop_toBottomOf="@+id/et_pw" />
+        app:layout_constraintEnd_toEndOf="@+id/checkbox"
+        app:layout_constraintStart_toStartOf="@+id/checkbox"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox" />
     <Button
         android:id="@+id/btn_register"
         android:layout_width="match_parent"

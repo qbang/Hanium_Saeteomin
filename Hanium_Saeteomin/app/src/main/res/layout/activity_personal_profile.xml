@@ -190,7 +190,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tv_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10px"

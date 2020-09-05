@@ -3,10 +3,12 @@ package com.example.hanium_saeteomin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.hanium_saeteomin.homefragment.LoginFailedDialog;
@@ -30,6 +32,24 @@ public class LoginActivity extends AppCompatActivity {
         Button btn_register = findViewById(R.id.btn_register);
         et_id = findViewById(R.id.et_id);
         et_pw = findViewById(R.id.et_pw);
+        final CheckBox checkBox = findViewById(R.id.checkbox);
+
+        SharedPreferences pref = getSharedPreferences("mine",MODE_PRIVATE);
+
+        if(pref.getBoolean("check",false))
+        {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+//            String id = pref.getString("id","");
+//            String pw = pref.getString("pw","");
+//            Log.d("id",id);
+//            Log.d("pw",pw);
+        }
+
+        String id = pref.getString("id","");
+        String pw = pref.getString("pw","");
+        et_id.setText(id);
+        et_pw.setText(pw);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +63,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 }else{
                 RetrofitClient retrofitClient = new RetrofitClient();
-//                String user_id = "abc@abc.com";
-//                String user_pw = "1234";
                 RequestLogin requestLogin = new RequestLogin(et_id.getText().toString(),et_pw.getText().toString());
                 Call<JsonObject> call = retrofitClient.apiService.Login(requestLogin);
                 call.enqueue(new Callback<JsonObject>() {
@@ -52,8 +70,12 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                         Log.d("login",response.body().toString());
                         if(response.body().toString().contains("성공")) {
+                            if(checkBox.isChecked()){
+                                setAutoLogin();
+                            }
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
+
 
                         }else{
                             LoginFailedDialog loginFailedDialog = new LoginFailedDialog(LoginActivity.this);
@@ -83,4 +105,17 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    public void setAutoLogin(){
+        SharedPreferences pref = getSharedPreferences("mine",MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("id",et_id.getText().toString());
+        editor.putString("pw",et_pw.getText().toString());
+        editor.putBoolean("check",true);
+        Log.d("login_id",et_id.getText().toString());
+        Log.d("login_pw",et_pw.getText().toString());
+        editor.commit();
+    }
+
+
 }

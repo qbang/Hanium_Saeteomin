@@ -70,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="88dp"
             android:layout_marginTop="280dp"
+            android:visibility="gone"
             android:text="오늘의 추천 신조어가 없습니다!"
             android:textColor="#000"
             android:textSize="20sp"
