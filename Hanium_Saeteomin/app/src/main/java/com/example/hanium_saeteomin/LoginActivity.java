@@ -1,7 +1,6 @@
 package com.example.hanium_saeteomin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,12 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-
 import com.example.hanium_saeteomin.homefragment.LoginFailedDialog;
 import com.example.hanium_saeteomin.network.RequestLogin;
 import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.google.gson.JsonObject;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -56,18 +53,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if((et_id.length()==0||et_pw.length()==0)) {
                     Log.d("login","길이");
-
                     LoginFailedDialog loginFailedDialog = new LoginFailedDialog(LoginActivity.this);
                     loginFailedDialog.callFunction();
                     loginFailedDialog.setText("아이디와 비밀번호 둘 다 입력해주세요!");
-
                 }else{
                 RetrofitClient retrofitClient = new RetrofitClient();
                 RequestLogin requestLogin = new RequestLogin(et_id.getText().toString(),et_pw.getText().toString());
                 Call<JsonObject> call = retrofitClient.apiService.Login(requestLogin);
                 call.enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                         Log.d("login",response.body().toString());
                         if(response.body().toString().contains("성공")) {
                             if(checkBox.isChecked()){
