@@ -19,11 +19,11 @@ public interface ApiService {
     @POST("new_word")
     Call<JsonArray> GetTodayWord(@Body RequestGetTodayWord body);
 
-    @GET("quiz")
-    Call<JsonArray> GetQuizList();
+    @POST("quiz")
+    Call<JsonObject> GetQuizList(@Body RequestGetQuizList body);
 
-    @POST("quiz_result")
-    Call<JsonObject> QuizResult(@Body SendQuizResult body);
+    @POST("save_score")
+    Call<JsonObject> SaveScore(@Body SendQuizResult body);
 
     @POST("board")
     Call<JsonArray> GetBoardList();
@@ -36,6 +36,9 @@ public interface ApiService {
 
     @POST("comment_write")
     Call<JsonObject> WriteComment(@Body RequestWriteComment body);
+    @POST("test")
+    Call<JsonObject> RequestSolution(@Body RequestSolution body);
+
 
 //    @HTTP(method = "GET",path="login/",hasBody = true)
 //    Call<JsonObject> getLogin(@Body RequestLogin body);
