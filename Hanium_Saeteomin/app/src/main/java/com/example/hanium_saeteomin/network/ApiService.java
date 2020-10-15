@@ -28,6 +28,14 @@ public interface ApiService {
     @POST("board")
     Call<JsonArray> GetBoardList();
 
+    @POST("comment")
+    Call<JsonArray> GetBoardCommentList(@Body RequestGetComment body);
+
+    @POST("board_write")
+    Call<JsonObject> WriteBoard(@Body RequestWriteFeed body);
+
+    @POST("comment_write")
+    Call<JsonObject> WriteComment(@Body RequestWriteComment body);
 
 //    @HTTP(method = "GET",path="login/",hasBody = true)
 //    Call<JsonObject> getLogin(@Body RequestLogin body);

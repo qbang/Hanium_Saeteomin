@@ -6,28 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8"
+            />
 
         <TextView
             android:id="@+id/tv_word_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="뽀짝"
             android:layout_marginLeft="20dp"
+            android:text="뽀짝"
             android:textSize="18sp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guidline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/tv_word_mean"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="앞말에 붙어 앞말이 나타내는 \n 성질을 강화하는 어근" />
-    </LinearLayout>
+            android:text="뭐임sㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"
+            app:layout_constraintStart_toStartOf="@id/tv_word_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_word_name"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/guidline"
+
+            />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

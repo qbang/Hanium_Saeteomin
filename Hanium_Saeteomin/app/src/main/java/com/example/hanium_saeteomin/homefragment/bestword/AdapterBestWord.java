@@ -33,8 +33,6 @@ public class AdapterBestWord extends RecyclerView.Adapter<AdapterBestWord.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull AdapterBestWord.ViewHolder holder, int position) {
-        holder.wordName.setGravity(Gravity.CENTER);
-        holder.wordMean.setGravity(Gravity.CENTER);
 
         holder.wordName.setText(mList.get(position).getWordName());
         holder.wordMean.setText(mList.get(position).getWordMean());

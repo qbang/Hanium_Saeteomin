@@ -135,9 +135,14 @@ public class HomeFragment extends Fragment {
 
         //퀴즈내역
         ArrayList<String> list = new ArrayList<>();
-        for (int i=0; i<10; i++) {
-            list.add(String.format("TEXT %d", i)) ;
-        }
+//        for (int i=0; i<10; i++) {
+        list.add(String.format("가시아버지")) ;
+        list.add(String.format("가즈아")) ;
+        list.add(String.format("핑프")) ;
+        list.add(String.format("스몸비")) ;
+        list.add(String.format("일코노미")) ;
+
+//        }
         RecyclerView recyclerView = view.findViewById(R.id.rv_quiz) ;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext())) ;
         AdapterQuiz adapter = new AdapterQuiz(list) ;

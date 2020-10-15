@@ -35,9 +35,15 @@ public class BestWordActivity extends AppCompatActivity {
 
         WordData data = new WordData("뽀쟉","Apple");
 
-        for(int i=0;i<6;i++){
-            bestWordList.add(data);
-        }
+//        for(int i=0;i<6;i++){
+        bestWordList.add(new WordData("에어노마드족","대기오염이 없고 공기가 꺠끗한 지역을 찾아 이주하는 사람"));
+        bestWordList.add(new WordData("삼귀자","자연인들이 본격적으로 사귀기 전의 단계"));
+        bestWordList.add(new WordData("자만추","자연스러운 만남 추구"));
+        bestWordList.add(new WordData("알잘딱깔센","알아서 잘 딱 깔끔하고 센스있게"));
+        bestWordList.add(new WordData("아바라","아이스 바닐라 라떼"));
+        bestWordList.add(new WordData("오저치고","오늘 저녁 치킨 고?"));
+
+//        }
         adapter.notifyDataSetChanged();
 
 

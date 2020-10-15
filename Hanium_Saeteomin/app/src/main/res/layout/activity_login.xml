@@ -13,7 +13,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/north_korea"
         app:layout_constraintBottom_toTopOf="@+id/tv_hello"
         app:layout_constraintStart_toStartOf="@+id/tv_hello" />
     <!-- <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>-->
@@ -22,7 +21,6 @@
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/south_korea"
         app:layout_constraintBottom_toTopOf="@+id/tv_hello"
         app:layout_constraintStart_toEndOf="@+id/img_north_korea" />
     <TextView

@@ -98,6 +98,7 @@ public class TodayWordActivityOne extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<JsonArray> call, Throwable t) {
+                Log.d("today","실패");
 
             }
         });

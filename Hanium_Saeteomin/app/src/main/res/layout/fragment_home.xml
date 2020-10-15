@@ -24,7 +24,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:text="신조어추천"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include" />
@@ -70,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="오늘의 신조어"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/img_today_word"
             app:layout_constraintStart_toStartOf="@+id/img_today_word"
             app:layout_constraintTop_toBottomOf="@+id/img_today_word" />
@@ -101,6 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="베스트 신조어"
+            android:textStyle="bold"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/img_best_word"
             app:layout_constraintStart_toStartOf="@+id/img_best_word"
@@ -112,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="퀴즈 내역"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/tv_today_word" />
@@ -132,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="최근 질문 단어"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="@+id/textView2"
