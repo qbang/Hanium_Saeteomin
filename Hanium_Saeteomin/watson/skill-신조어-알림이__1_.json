@@ -1,0 +1,5182 @@
+{
+  "intents": [
+    {
+      "intent": "인사",
+      "examples": [
+        {
+          "text": "오늘 하루도 화이팅"
+        },
+        {
+          "text": "좋은 아침입니다"
+        },
+        {
+          "text": "안녕하세요"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "퀴즈",
+      "examples": [
+        {
+          "text": "퀴즈"
+        },
+        {
+          "text": "퀴즈 풀고 싶다"
+        },
+        {
+          "text": "쿼즈 하고 싶어요"
+        },
+        {
+          "text": "퀴즈 문제 내주세요"
+        },
+        {
+          "text": "퀴즈 레츠고"
+        },
+        {
+          "text": "퀴즈가 하고 싶어요"
+        },
+        {
+          "text": "퀴즈를 하기 원합니다."
+        },
+        {
+          "text": "퀴즈시작"
+        },
+        {
+          "text": "퀴즈시작하고 싶어요"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "faq",
+      "examples": [
+        {
+          "text": "@남한말 의 뜻을 알고 싶어요"
+        },
+        {
+          "text": "@신조어 의 뜻을 알고 싶어요"
+        },
+        {
+          "text": "@외래어 가 무슨 뜻인지 알려주세요"
+        },
+        {
+          "text": "@남한말 가 무슨 뜻인가요?"
+        },
+        {
+          "text": "@신조어 가 무슨 뜻인가요?"
+        },
+        {
+          "text": "@줄임말 에 대해서 알고 싶어요"
+        },
+        {
+          "text": "@줄임말 에 대해서 알려주세요"
+        },
+        {
+          "text": "@남한말 가 뭐예요?"
+        },
+        {
+          "text": "@남한말 이 뭔가요?"
+        },
+        {
+          "text": "@신조어 가 뭐예요?"
+        },
+        {
+          "text": "@신조어 는 뭔가요?"
+        },
+        {
+          "text": "@외래어 는 뭔가요?"
+        },
+        {
+          "text": "@줄임말 이 뭔가요?"
+        },
+        {
+          "text": "@외래어 뜻을 알고 싶어요"
+        },
+        {
+          "text": "@신조어 알고 싶어요"
+        },
+        {
+          "text": "@외래어 알고 싶어요"
+        },
+        {
+          "text": "@줄임말 뜻이 뭔가요?"
+        },
+        {
+          "text": "@외래어 뜻이 궁금합니다"
+        },
+        {
+          "text": "@남한말 뜻이 궁금합니다."
+        },
+        {
+          "text": "@신조어 뜻이 궁금합니다."
+        },
+        {
+          "text": "@줄임말 단어의 뜻이 뭔가요?"
+        },
+        {
+          "text": "@외래어 알려주세요"
+        },
+        {
+          "text": "@남한말은 뭔가요?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "남한말",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "가발",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "날씨",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "노동",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "달걀",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "각선미",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "거북이",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "냉동고",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "도시락",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "명란젓",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "대중가요",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "만만하다",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "맞벌이가정",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "신조어",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "각",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "ㅇㅇ",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "렬루",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "물멍",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "입덕",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "창렬",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "최애",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "커엽",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "갓띵작",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "고답이",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "남이사",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "낫닝겐",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "뇌피셜",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "레게노",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "머머리",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "먼치킨",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "빈테크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "사이다",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "서공족",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "십덕후",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "인구론",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "츤데레",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "턱스크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "헬조선",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "ㅂㅂㅂㄱ",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "ㅇㄱㄹㅇ",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "국해의원",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "랜선여행",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "롬곡옾높",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "모태솔로",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "뽀시래기",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "어장관리",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "일코노미",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "장미단추",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "치팅데이",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "팩트폭력",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "tmi",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "외래어",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "슛",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "잼",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "컵",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "그룹",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "네트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "노크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "도넛",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "독일",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "랜턴",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "레일",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "리본",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "매트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "박스",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "버튼",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "볼펜",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "사인",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "샤워",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "샤프",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "채널",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "치킨",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "칼라",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "커튼",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "탱크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "테러",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "팝콘",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "펑크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "피망",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "피자",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "나이프",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "녹다운",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "니제르",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "데이트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "덴마크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "드레스",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "라디오",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "러시아",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "로터리",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "리모컨",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "리볼버",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "마라톤",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "멕시코",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "모로코",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "몽타주",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "미얀마",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "베란다",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "베트남",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "소시지",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "스위치",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "스커트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "슬리퍼",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "싱크대",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "에너지",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "에어컨",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "엑스선",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "와이퍼",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "카카오",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "캐러멜",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "캠페인",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "콤팩트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "타이어",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "태블릿",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "토마토",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "투피스",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "트랙터",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "파우더",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "플러그",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "플러스",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "헤딩슛",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "휴대폰",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "네덜란드",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "다이어트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "동티모르",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "루마니아",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "메트로놈",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "멜로디언",
+          "synonyms": [
+            "멜로디온"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "무빙워크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "바이러스",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "브래지어",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "블라우스",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "스마트폰",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "스파이크",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "스프레이",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "에필로그",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "오버타임",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "컨테이너",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "헬리콥터",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "가스레인지",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "나이지리아",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "모노드라마",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "모자이크화",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "모터사이클",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "방글라데시",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "비닐하우스",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "아이스크림",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "아이스하키",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "인터체인지",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "다이너마이트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "스타플레이어",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "에스컬레이터",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "싱크로나이즈드",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "줄임말",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "갈비",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "갠소",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "극혐",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "넘나",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "따아",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "똥송",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "마상",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "맥날",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "문찐",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "보배",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "복붙",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "비담",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "새등",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "새터",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "생선",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "생파",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "시강",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "심쿵",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "악개",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "피코",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "갑분싸",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "갑붕싸",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "강직인",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "근자감",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "꾸안꾸",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "너또다",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "당모치",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "대민만",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "돈미새",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "듣보잡",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "명존세",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "믿거페",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "버카충",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "별다줄",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "사못쓰",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "사바사",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "세젤귀",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "세젤예",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "솔까말",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "스라벨",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "이선좌",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "희연사",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "힘숨찐",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "낄끼빠빠",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "만반잘부",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "반맞반틀",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "번달번줌",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "복세편살",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "빼박캔트",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "우심손까",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "기타",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "알아듣기 쉽게 다시 말씀해주시면 좋겠어요."
+              },
+              {
+                "text": "무슨 뜻인지 모르겠어요."
+              },
+              {
+                "text": "다시 입력부탁드립니다."
+              },
+              {
+                "text": "이해하기 쉽게 다시 입력해주시면 좋겠습니다."
+              },
+              {
+                "text": "무슨 단어인지 모르겠어요."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "기타",
+      "previous_sibling": "node_4_1598862195384",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "환영 인사",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "안녕하세요? 무엇을 도와드릴까요?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "환영 인사"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "생일파티입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA5MThfMjky%2FMDAxNTY4NzYzMzc0MDQx.1CaGhsGff8jK93vv0NAoE35P4VTJChCGAoK6Oq-PmXIg.D9sEGSR1F2sv9OGfDTjjh1o4kSjzdgDnQmOprmFw2I4g.JPEG.amdetoos247%2F1568763282830.jpg&type=sc960_832",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:생파",
+      "dialog_node": "node_10_1598870390611",
+      "previous_sibling": "node_6_1598870056492"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "원주필 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:볼펜",
+      "dialog_node": "node_10_1599043512808",
+      "previous_sibling": "node_5_1599043511309"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "사자고추 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:피망",
+      "dialog_node": "node_10_1599043514682",
+      "previous_sibling": "node_9_1599043514358"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "도마도 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:토마토",
+      "dialog_node": "node_10_1599045892262",
+      "previous_sibling": "node_2_1599043538447"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "마로끄 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:모로코",
+      "dialog_node": "node_10_1599045912179",
+      "previous_sibling": "node_5_1599045911880"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "뜨락또르 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:트랙터",
+      "dialog_node": "node_10_1599047006032",
+      "previous_sibling": "node_5_1599047005372"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "그루빠 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:그룹",
+      "dialog_node": "node_10_1599047362411",
+      "previous_sibling": "node_1_1599047360957"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "체조깔개 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:매트",
+      "dialog_node": "node_10_1599268789602",
+      "previous_sibling": "node_4_1599045913580"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "맺음이야기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:에필로그",
+      "dialog_node": "node_10_1599268816467",
+      "previous_sibling": "node_1_1599268818828"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "뿌무개 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:스프레이",
+      "dialog_node": "node_10_1599268818695",
+      "previous_sibling": "node_8_1599268818589"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "너무나 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:넘나",
+      "dialog_node": "node_10_1599268820282",
+      "previous_sibling": "node_8_1599271520742"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "갑자기 붕어싸만코가 먹고싶은 시간 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://lh3.googleusercontent.com/proxy/lW09MVoWZc-Uyy6FtOIqmm4HVWsGejUR5K0UIHyWy0FxVQO64lwUh9asZ83BNiXxRObra4l2NO6VI3_wbOl4Gd5MUxl6cuB3SnVMDyghLA",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:갑붕싸",
+      "dialog_node": "node_10_1599271519767",
+      "previous_sibling": "node_2_1599271520943"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "당연히 모든 치킨은 옳다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:당모치",
+      "dialog_node": "node_10_1599271522349",
+      "previous_sibling": "node_2_1599271522110"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "갑자기 분위기 싸해짐 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:갑분싸",
+      "dialog_node": "node_10_1599271522510",
+      "previous_sibling": "node_10_1599271522349"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "만나서 반가워 잘 부탁해 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:만반잘부",
+      "dialog_node": "node_10_1599272883528",
+      "previous_sibling": "node_4_1599272882254"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "복잡한 세상 편하게 살자 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:복세편살",
+      "dialog_node": "node_10_1599272888481",
+      "previous_sibling": "node_5_1599272887306"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "버스 카드 충전 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:버카충",
+      "dialog_node": "node_10_1599272898413",
+      "previous_sibling": "node_8_1599272891392"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "심장이 쿵하고 내려 앉았다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:심쿵",
+      "dialog_node": "node_10_1599272907151",
+      "previous_sibling": "node_7_1599272905541"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "고구마를 물없이 100개 먹은 것처럼 답답한 사람 혹은 상황 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:고답이",
+      "dialog_node": "node_10_1599273407059",
+      "previous_sibling": "node_2_1599273405260"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "뭔가 이루어낼 것 겉거나, 일어날 것 같은 상황에 쓰이는 말 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:각",
+      "dialog_node": "node_10_1599274455150",
+      "previous_sibling": "node_10_1599273407059"
+    },
+    {
+      "type": "standard",
+      "title": "인사",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "네 안녕하세요! 신조어 공부하기 좋은 날입니다."
+              },
+              {
+                "text": "네 안녕하세요! 신조어 공부하기 좋은 날이죠?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          },
+          {
+            "values": [
+              {
+                "text": "퀴즈를 원하시면 \"퀴즈시작\" 이라고 써주세요"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#인사",
+      "dialog_node": "node_1_1596850954223",
+      "previous_sibling": "환영 인사"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "살까기 라는 뜻입니다. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:다이어트",
+      "dialog_node": "node_1_1598862334823",
+      "previous_sibling": "node_8_1598862258834"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "자동복도 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:무빙워크",
+      "dialog_node": "node_1_1599043499267",
+      "previous_sibling": "node_10_1598870390611"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "수표 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:사인",
+      "dialog_node": "node_1_1599043513778",
+      "previous_sibling": "node_10_1599043512808"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "수지연필 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:샤프",
+      "dialog_node": "node_1_1599043515462",
+      "previous_sibling": "node_1_1599043513778"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "빵크 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:펑크",
+      "dialog_node": "node_1_1599045899083",
+      "previous_sibling": "node_5_1599045897328"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "도이췰란드 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:독일",
+      "dialog_node": "node_1_1599045910414",
+      "previous_sibling": "node_5_1599045909831"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "동부띠모르 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:동티모르",
+      "dialog_node": "node_1_1599045910817",
+      "previous_sibling": "node_1_1599045910414"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "먄마 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:미얀마",
+      "dialog_node": "node_1_1599045912513",
+      "previous_sibling": "node_10_1599045912179"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "렌트겐 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:엑스선",
+      "dialog_node": "node_1_1599047360957",
+      "previous_sibling": "node_10_1599047006032"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "나이제리아 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:나이지리아",
+      "dialog_node": "node_1_1599047365306",
+      "previous_sibling": "node_5_1599047364954"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "니제르공화국 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:니제르",
+      "dialog_node": "node_1_1599047366931",
+      "previous_sibling": "node_3_1599047366405"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "예술헤염 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:싱크로나이즈드",
+      "dialog_node": "node_1_1599268818828",
+      "previous_sibling": "node_10_1599268818695"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "양복치마 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:스커트",
+      "dialog_node": "node_1_1599268820589",
+      "previous_sibling": "node_6_1599268820495"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "갈수록 비호감 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:갈비",
+      "dialog_node": "node_1_1599271522630",
+      "previous_sibling": "node_10_1599271522510"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "번호 달라고하면 번호 줌?  입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:번달번줌",
+      "dialog_node": "node_1_1599272899610",
+      "previous_sibling": "node_10_1599272898413"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "세상에서 제일 예쁜 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:세젤예",
+      "dialog_node": "node_1_1599273402783",
+      "previous_sibling": "node_6_1599273401493"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "스터디 앤드 라이프 밸런스(공부와 삶의 균형) 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:스라벨",
+      "dialog_node": "node_1_1599273406095",
+      "previous_sibling": "node_9_1599273404559"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "1인 경제 소비생활 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:일코노미",
+      "dialog_node": "node_1_1599274458537",
+      "previous_sibling": "node_2_1599274458389"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "니가 무슨 상관이냐는 뜻으로 대답할 때 쓰입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:남이사",
+      "dialog_node": "node_1_1599274461681",
+      "previous_sibling": "node_7_1599274461512"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "알밥젓 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:명란젓",
+      "dialog_node": "node_1_1599274466823",
+      "previous_sibling": "node_4_1599274465849"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "판형콤퓨터 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:태블릿",
+      "dialog_node": "node_2_1599043518707",
+      "previous_sibling": "node_7_1599043518359"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "손전화기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:휴대폰",
+      "dialog_node": "node_2_1599043534482",
+      "previous_sibling": "node_8_1599043532102"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "라지오 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:라디오",
+      "dialog_node": "node_2_1599043534728",
+      "previous_sibling": "node_2_1599043534482"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "다이야 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:타이어",
+      "dialog_node": "node_2_1599043538447",
+      "previous_sibling": "node_9_1599043538075"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "립체교 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:인터체인지",
+      "dialog_node": "node_2_1599047363923",
+      "previous_sibling": "node_8_1599047363575"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "끌신 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:슬리퍼",
+      "dialog_node": "node_2_1599047364640",
+      "previous_sibling": "node_8_1599047364268"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "배구그물 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:네트",
+      "dialog_node": "node_2_1599047366042",
+      "previous_sibling": "node_5_1599047365671"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "레루 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:레일",
+      "dialog_node": "node_2_1599047377389",
+      "previous_sibling": "node_8_1599047377070"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "박절기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:메트로놈",
+      "dialog_node": "node_2_1599268792105",
+      "previous_sibling": "node_10_1599268789602"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "목달개 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:칼라",
+      "dialog_node": "node_2_1599268819058",
+      "previous_sibling": "node_3_1599268817660"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "창가림막 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:커튼",
+      "dialog_node": "node_2_1599268819332",
+      "previous_sibling": "node_5_1599268819178"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "너 또 다이어트 하냐?  입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:너또다",
+      "dialog_node": "node_2_1599271518512",
+      "previous_sibling": "node_4_1599271517713"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "강아지 키우는 직장인 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:강직인",
+      "dialog_node": "node_2_1599271520943",
+      "previous_sibling": "node_5_1599271519597"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "반은 맞고 반을 틀렸다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:반맞반틀",
+      "dialog_node": "node_2_1599271522110",
+      "previous_sibling": "node_4_1599271521988"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "개인소장 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:갠소",
+      "dialog_node": "node_2_1599271522896",
+      "previous_sibling": "node_3_1599271522748"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "듣도 보도 못한 잡것 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:듣보잡",
+      "dialog_node": "node_2_1599272873118",
+      "previous_sibling": "node_10_1599268820282"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "비주얼 담당 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:비담",
+      "dialog_node": "node_2_1599272886101",
+      "previous_sibling": "node_5_1599272884846"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "새벽 등교 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:새등",
+      "dialog_node": "node_2_1599273403684",
+      "previous_sibling": "node_1_1599273402783"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "갓명작 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:갓띵작",
+      "dialog_node": "node_2_1599273405260",
+      "previous_sibling": "node_1_1599273406095"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "이거레알(이거 진짜다) 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:ㅇㄱㄹㅇ",
+      "dialog_node": "node_2_1599274458389",
+      "previous_sibling": "node_4_1599274458237"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "실제로 사귀지는 않지만 사귈 것처럼 이성들을 동시에 관리하는 태도 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:어장관리",
+      "dialog_node": "node_2_1599274465474",
+      "previous_sibling": "node_1_1599274461681"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "거부기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:거북이",
+      "dialog_node": "node_2_1599274468580",
+      "previous_sibling": "node_5_1599274468358"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "다리매 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:각선미",
+      "dialog_node": "node_2_1599288552469",
+      "previous_sibling": "node_2_1599274468580"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "에네르기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:에너지",
+      "dialog_node": "node_3_1599043516684",
+      "previous_sibling": "node_5_1599043516434"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "단졸임 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:잼",
+      "dialog_node": "node_3_1599043517488",
+      "previous_sibling": "node_6_1599043517177"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "방글라데슈 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:방글라데시",
+      "dialog_node": "node_3_1599045912867",
+      "previous_sibling": "node_1_1599045912513"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "직승기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:헬리콥터",
+      "dialog_node": "node_3_1599047003861",
+      "previous_sibling": "node_9_1599047002770"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "맞아넘어지기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:녹다운",
+      "dialog_node": "node_3_1599047366405",
+      "previous_sibling": "node_2_1599047366042"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "가슴띠 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:브래지어",
+      "dialog_node": "node_3_1599268815157",
+      "previous_sibling": "node_6_1599268814403"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "네번치기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:오버타임",
+      "dialog_node": "node_3_1599268817660",
+      "previous_sibling": "node_10_1599268816467"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "차넣기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:슛",
+      "dialog_node": "node_3_1599268818092",
+      "previous_sibling": "node_5_1599268817048"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "테로 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:테러",
+      "dialog_node": "node_3_1599268819723",
+      "previous_sibling": "node_8_1599268819596"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "낄때 끼고 빠질때 빠져라 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:낄끼빠빠",
+      "dialog_node": "node_3_1599271520360",
+      "previous_sibling": "node_7_1599271518956"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "이미 선택된 좌석 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:이선좌",
+      "dialog_node": "node_3_1599271521654",
+      "previous_sibling": "node_9_1599271521545"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "극도로 혐오 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:극혐",
+      "dialog_node": "node_3_1599271522748",
+      "previous_sibling": "node_1_1599271522630"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "대한 민국 만세 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:대민만",
+      "dialog_node": "node_3_1599272876045",
+      "previous_sibling": "node_7_1599272874482"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "폭풍눈물을 뒤집어 놓은 말 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:롬곡옾높",
+      "dialog_node": "node_3_1599274457354",
+      "previous_sibling": "node_8_1599274457165"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "최고로 좋아하는 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:최애",
+      "dialog_node": "node_3_1599274458840",
+      "previous_sibling": "node_5_1599274458687"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "높은 가격에 비해 품질이 좋지 못한 경우 사용하는 속어 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:창렬",
+      "dialog_node": "node_3_1599274460511",
+      "previous_sibling": "node_8_1599274460337"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "레전드, 전설 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:레게노",
+      "dialog_node": "node_3_1599274461026",
+      "previous_sibling": "node_7_1599274460847"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "자기 머리에서 나온 생각이나 사실 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:뇌피셜",
+      "dialog_node": "node_3_1599274465657",
+      "previous_sibling": "node_2_1599274465474"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "곽밥 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:도시락",
+      "dialog_node": "node_3_1599274467336",
+      "previous_sibling": "node_7_1599274467174"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "군중가요 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:대중가요",
+      "dialog_node": "node_3_1599274467537",
+      "previous_sibling": "node_3_1599274467336"
+    },
+    {
+      "type": "standard",
+      "title": "질문과답변",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_8_1598862258834"
+      },
+      "conditions": "#faq",
+      "dialog_node": "node_4_1598862195384",
+      "previous_sibling": "node_1_1596850954223"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "가시대 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:싱크대",
+      "dialog_node": "node_4_1599043516189",
+      "previous_sibling": "node_5_1599043515945"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "삐짜 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:피자",
+      "dialog_node": "node_4_1599045909355",
+      "previous_sibling": "node_1_1599045899083"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "나간권총 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:리볼버",
+      "dialog_node": "node_4_1599045913580",
+      "previous_sibling": "node_9_1599047367833"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "요쿵지 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:리모컨",
+      "dialog_node": "node_4_1599047363213",
+      "previous_sibling": "node_5_1599047362837"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "모터찌클 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:모터사이클",
+      "dialog_node": "node_4_1599268811599",
+      "previous_sibling": "node_5_1599268810547"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "나뉜옷 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:투피스",
+      "dialog_node": "node_4_1599268819836",
+      "previous_sibling": "node_3_1599268819723"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "돈에 미친 새끼 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:돈미새",
+      "dialog_node": "node_4_1599271517713",
+      "previous_sibling": "node_7_1599268820125"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "희귀한 연예인 사진 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:희연사",
+      "dialog_node": "node_4_1599271520043",
+      "previous_sibling": "node_5_1599271521192"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "피해자 코스프레 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:피코",
+      "dialog_node": "node_4_1599271521988",
+      "previous_sibling": "node_3_1599271521654"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "마음의 상처 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:마상",
+      "dialog_node": "node_4_1599272881196",
+      "previous_sibling": "node_9_1599272880035"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "맥도날드 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:맥날",
+      "dialog_node": "node_4_1599272882254",
+      "previous_sibling": "node_4_1599272881196"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "시선강탈 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:시강",
+      "dialog_node": "node_4_1599272903464",
+      "previous_sibling": "node_6_1599272902666"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "답답했던 속이 뻥 뚫리는 상황에 쓰는 말 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:사이다",
+      "dialog_node": "node_4_1599274458080",
+      "previous_sibling": "node_6_1599274457917"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "인문계 90%가 논다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:인구론",
+      "dialog_node": "node_4_1599274458237",
+      "previous_sibling": "node_4_1599274458080"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "투머치인포메이션 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:tmi",
+      "dialog_node": "node_4_1599274459321",
+      "previous_sibling": "node_7_1599274459166"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "누군가를 덕후처럼 좋아하기 시작했다는 말 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:입덕",
+      "dialog_node": "node_4_1599274465849",
+      "previous_sibling": "node_3_1599274465657"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "덧머리 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:대중가요",
+      "dialog_node": "node_4_1599288555484",
+      "previous_sibling": "node_2_1599288552469"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "지함 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:박스",
+      "dialog_node": "node_5_1599043511309",
+      "previous_sibling": "node_1_1599043499267"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "지능형손전화기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:스마트폰",
+      "dialog_node": "node_5_1599043515945",
+      "previous_sibling": "node_7_1599043515690"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "빙상호케이 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:아이스하키",
+      "dialog_node": "node_5_1599043516434",
+      "previous_sibling": "node_4_1599043516189"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "랭풍기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:에어컨",
+      "dialog_node": "node_5_1599043516935",
+      "previous_sibling": "node_3_1599043516684"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "통로 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:채널",
+      "dialog_node": "node_5_1599043517764",
+      "previous_sibling": "node_3_1599043517488"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "마라손 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:마라톤",
+      "dialog_node": "node_5_1599043532406",
+      "previous_sibling": "node_2_1599043534728"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "땅크 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:탱크",
+      "dialog_node": "node_5_1599045897328",
+      "previous_sibling": "node_10_1599045892262"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "단마르크 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:덴마크",
+      "dialog_node": "node_5_1599045909831",
+      "previous_sibling": "node_6_1599045909545"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "로씨야 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:러시아",
+      "dialog_node": "node_5_1599045911218",
+      "previous_sibling": "node_1_1599045910817"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "메히꼬 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:멕시코",
+      "dialog_node": "node_5_1599045911880",
+      "previous_sibling": "node_6_1599045911551"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "웰남 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:베트남",
+      "dialog_node": "node_5_1599045913209",
+      "previous_sibling": "node_3_1599045912867"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "닭유찜 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:치킨",
+      "dialog_node": "node_5_1599047005372",
+      "previous_sibling": "node_3_1599047003861"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "까까오 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:카카오",
+      "dialog_node": "node_5_1599047362837",
+      "previous_sibling": "node_10_1599047362411"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "쁠류스"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:플러스",
+      "dialog_node": "node_5_1599047364954",
+      "previous_sibling": "node_2_1599047364640"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "밥상칼 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:나이프",
+      "dialog_node": "node_5_1599047365671",
+      "previous_sibling": "node_1_1599047365306"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "쪽무이그림 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:모자이크화",
+      "dialog_node": "node_5_1599268810547",
+      "previous_sibling": "node_7_1599268792650"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "비닐온실 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:비닐하우스",
+      "dialog_node": "node_5_1599268817048",
+      "previous_sibling": "node_6_1599268815823"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "기둥선수 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:스타플레이어",
+      "dialog_node": "node_5_1599268818460",
+      "previous_sibling": "node_1_1599268820589"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "기름사탕 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:캐러멜",
+      "dialog_node": "node_5_1599268819178",
+      "previous_sibling": "node_2_1599268819058"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "악성 개인팬 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:악개",
+      "dialog_node": "node_5_1599271519597",
+      "previous_sibling": "node_2_1599271518512"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "우리 심심한데 손이나 잡을까? 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:우심손까",
+      "dialog_node": "node_5_1599271521192",
+      "previous_sibling": "node_10_1599271519767"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "문화 찐따 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:문찐",
+      "dialog_node": "node_5_1599272878667",
+      "previous_sibling": "node_8_1599272877490"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "믿고 거르는 페이스북 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:믿거페",
+      "dialog_node": "node_5_1599272884846",
+      "previous_sibling": "node_10_1599272883528"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "복사 붙여넣기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:복붙",
+      "dialog_node": "node_5_1599272887306",
+      "previous_sibling": "node_2_1599272886101"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "아주 멋지거나 훌륭해서 인간이 아닌 듯하다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:낫닝겐",
+      "dialog_node": "node_5_1599274456061",
+      "previous_sibling": "node_10_1599274455150"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "멀리서 보면 미남/미녀 가까이서 보면 추남/추녀 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:장미단추",
+      "dialog_node": "node_5_1599274458687",
+      "previous_sibling": "node_1_1599274458537"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "가난할 빈과 기술의 합성어 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:빈테크",
+      "dialog_node": "node_5_1599274459672",
+      "previous_sibling": "node_8_1599274459502"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "로동 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:노동",
+      "dialog_node": "node_5_1599274467889",
+      "previous_sibling": "node_6_1599274467694"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "날거리 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:날씨",
+      "dialog_node": "node_5_1599274468358",
+      "previous_sibling": "node_7_1599274468041"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "가락지빵"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:도넛",
+      "dialog_node": "node_6_1598870056492",
+      "previous_sibling": "node_1_1598862334823"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "비물닦개 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:와이퍼",
+      "dialog_node": "node_6_1599043517177",
+      "previous_sibling": "node_5_1599043516935"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "돌분 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:파우더",
+      "dialog_node": "node_6_1599043518936",
+      "previous_sibling": "node_2_1599043518707"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "네데를란드 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:네덜란드",
+      "dialog_node": "node_6_1599045909545",
+      "previous_sibling": "node_4_1599045909355"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "로므니아 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:루마니아",
+      "dialog_node": "node_6_1599045911551",
+      "previous_sibling": "node_5_1599045911218"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "도는네거리 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:로터리",
+      "dialog_node": "node_6_1599047367451",
+      "previous_sibling": "node_2_1599047377389"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "남포약 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:다이너마이트",
+      "dialog_node": "node_6_1599047376756",
+      "previous_sibling": "node_1_1599047366931"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "판조립 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:몽타주",
+      "dialog_node": "node_6_1599268812779",
+      "previous_sibling": "node_4_1599268811599"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "내밈대 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:베란다",
+      "dialog_node": "node_6_1599268814403",
+      "previous_sibling": "node_7_1599268813601"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "양복적삼 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:블라우스",
+      "dialog_node": "node_6_1599268815823",
+      "previous_sibling": "node_3_1599268815157"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "전기여닫개 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:스위치",
+      "dialog_node": "node_6_1599268820495",
+      "previous_sibling": "node_3_1599268818092"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "보조 배터리 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:보배",
+      "dialog_node": "node_6_1599272900613",
+      "previous_sibling": "node_1_1599272899610"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "솔직히 까놓고 말해서 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:솔까말",
+      "dialog_node": "node_6_1599272901454",
+      "previous_sibling": "node_6_1599272900613"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "4할도 못 치는 쓰레기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:사못쓰",
+      "dialog_node": "node_6_1599272902666",
+      "previous_sibling": "node_6_1599272901454"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "세상에서 제일 귀여운 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:세젤귀",
+      "dialog_node": "node_6_1599273401493",
+      "previous_sibling": "node_10_1599272907151"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "작고 귀엽다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:뽀시래기",
+      "dialog_node": "node_6_1599274457917",
+      "previous_sibling": "node_7_1599274457718"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "인터넷으로 여행을 한다는 의미 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:랜선여행",
+      "dialog_node": "node_6_1599274460178",
+      "previous_sibling": "node_8_1599274460015"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "직장세대 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:맞벌이가정",
+      "dialog_node": "node_6_1599274467029",
+      "previous_sibling": "node_1_1599274466823"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "닭알 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:달걀",
+      "dialog_node": "node_6_1599274467694",
+      "previous_sibling": "node_3_1599274467537"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "고기순대 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:소시지",
+      "dialog_node": "node_7_1599043515690",
+      "previous_sibling": "node_1_1599043515462"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "고뿌 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:컵",
+      "dialog_node": "node_7_1599043518359",
+      "previous_sibling": "node_8_1599043518117"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "샤와 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:샤워",
+      "dialog_node": "node_7_1599043533234",
+      "previous_sibling": "node_5_1599043532406"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "독연극 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:모노드라마",
+      "dialog_node": "node_7_1599268792650",
+      "previous_sibling": "node_2_1599268792105"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "자동단추 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:버튼",
+      "dialog_node": "node_7_1599268813601",
+      "previous_sibling": "node_6_1599268812779"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "피해자 코스프레 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:피코",
+      "dialog_node": "node_7_1599268820125",
+      "previous_sibling": "node_8_1599268819975"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "근거없는 자신감 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:근자감",
+      "dialog_node": "node_7_1599271518956",
+      "previous_sibling": "node_2_1599271522896"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "동양인이라 죄송합니다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:똥송",
+      "dialog_node": "node_7_1599272874482",
+      "previous_sibling": "node_2_1599272873118"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "생일선물 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:생선",
+      "dialog_node": "node_7_1599272905541",
+      "previous_sibling": "node_9_1599272904493"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "대와 머의 비슷함을 이용한 대머리 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:머머리",
+      "dialog_node": "node_7_1599274457553",
+      "previous_sibling": "node_3_1599274457354"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "반박불가의 초성 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:ㅂㅂㅂㄱ",
+      "dialog_node": "node_7_1599274457718",
+      "previous_sibling": "node_7_1599274457553"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "지옥+조선의 합성어로 한국은 지옥같이 살아가기 힘든 사회라는 의미 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:헬조선",
+      "dialog_node": "node_7_1599274459166",
+      "previous_sibling": "node_8_1599274459003"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "마스크를 썼지만 쓰지 않은 상태로 턱에 걸치고 다니는 것 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:턱스크",
+      "dialog_node": "node_7_1599274459855",
+      "previous_sibling": "node_5_1599274459672"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "팩트로 폭력한다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:팩트폭력",
+      "dialog_node": "node_7_1599274460683",
+      "previous_sibling": "node_3_1599274460511"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "국민들에게 해를 끼치는 의원 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:국해의원",
+      "dialog_node": "node_7_1599274460847",
+      "previous_sibling": "node_7_1599274460683"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "알았다는 의미 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:ㅇㅇ",
+      "dialog_node": "node_7_1599274461512",
+      "previous_sibling": "node_8_1599274461343"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "만문하다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:만만하다",
+      "dialog_node": "node_7_1599274467174",
+      "previous_sibling": "node_6_1599274467029"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "랭동고 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@남한말:냉동고",
+      "dialog_node": "node_7_1599274468041",
+      "previous_sibling": "node_5_1599274467889"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "가스곤로 라는 뜻입니다. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:가스레인지",
+      "dialog_node": "node_8_1598862258834"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "짐함 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:컨테이너",
+      "dialog_node": "node_8_1599043518117",
+      "previous_sibling": "node_5_1599043517764"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "머리받아넣기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:헤딩슛",
+      "dialog_node": "node_8_1599043532102",
+      "previous_sibling": "node_10_1599043514682"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "비루스 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:바이러스",
+      "dialog_node": "node_8_1599043537667",
+      "previous_sibling": "node_7_1599043533234"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "전지 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:랜턴",
+      "dialog_node": "node_8_1599047363575",
+      "previous_sibling": "node_4_1599047363213"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "얼음보숭이 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:아이스크림",
+      "dialog_node": "node_8_1599047364268",
+      "previous_sibling": "node_2_1599047363923"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "나리옷 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:드레스",
+      "dialog_node": "node_8_1599047377070",
+      "previous_sibling": "node_6_1599047376756"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "때리기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:스파이크",
+      "dialog_node": "node_8_1599268818589",
+      "previous_sibling": "node_5_1599268818460"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "분첩갑 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:콤팩트",
+      "dialog_node": "node_8_1599268819596",
+      "previous_sibling": "node_2_1599268819332"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "이미 선택된 좌석 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:이선좌",
+      "dialog_node": "node_8_1599268819975",
+      "previous_sibling": "node_4_1599268819836"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "꾸민듯 안꾸민듯 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:꾸안꾸",
+      "dialog_node": "node_8_1599271520742",
+      "previous_sibling": "node_3_1599271520360"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "따듯한 아메리카노 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:따아",
+      "dialog_node": "node_8_1599272877490",
+      "previous_sibling": "node_3_1599272876045"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "별걸 다 줄이네 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:별다줄",
+      "dialog_node": "node_8_1599272891392",
+      "previous_sibling": "node_9_1599272889980"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "진짜로(리얼로) 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:렬루",
+      "dialog_node": "node_8_1599274457165",
+      "previous_sibling": "node_5_1599274456061"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "귀엽의 변형된 말 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:커엽",
+      "dialog_node": "node_8_1599274459003",
+      "previous_sibling": "node_3_1599274458840"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "대형 서점의 독서 테이블에서 공부를 하는 사람 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:서공족",
+      "dialog_node": "node_8_1599274459502",
+      "previous_sibling": "node_4_1599274459321"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "물보고 멍하게 있는 상태 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:물멍",
+      "dialog_node": "node_8_1599274460015",
+      "previous_sibling": "node_7_1599274459855"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "무지 센 캐릭터 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:먼치킨",
+      "dialog_node": "node_8_1599274460337",
+      "previous_sibling": "node_6_1599274460178"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "특정날에 먹고 싶은 음식을 양껏 먹는 날 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:치팅데이",
+      "dialog_node": "node_8_1599274461343",
+      "previous_sibling": "node_9_1599274461181"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "꽂개 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:플러그",
+      "dialog_node": "node_9_1599043514358",
+      "previous_sibling": "node_6_1599043518936"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "깜빠니야 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:캠페인",
+      "dialog_node": "node_9_1599043538075",
+      "previous_sibling": "node_8_1599043537667"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "손기척 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:노크",
+      "dialog_node": "node_9_1599047002770",
+      "previous_sibling": "node_5_1599045913209"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "댕기 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@외래어:리본",
+      "dialog_node": "node_9_1599047367833",
+      "previous_sibling": "node_6_1599047367451"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "힘을 숨긴 찐따 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:힘숨찐",
+      "dialog_node": "node_9_1599271521545",
+      "previous_sibling": "node_4_1599271520043"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "명치를 매우 세게 때리고 싶다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:명존세",
+      "dialog_node": "node_9_1599272880035",
+      "previous_sibling": "node_5_1599272878667"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "빼도 박도 못한다 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:빼박캔트",
+      "dialog_node": "node_9_1599272889980",
+      "previous_sibling": "node_10_1599272888481"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "사람 by 사람 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:사바사",
+      "dialog_node": "node_9_1599272904493",
+      "previous_sibling": "node_4_1599272903464"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "새내기 배움터 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@줄임말:새터",
+      "dialog_node": "node_9_1599273404559",
+      "previous_sibling": "node_2_1599273403684"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "차가움 + 따뜻함'의 반대 성향을 한꺼번에 가지는 캐릭터 전반을 지칭하는 의미 입니다."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1598862195384",
+      "conditions": "@신조어:츤데레",
+      "dialog_node": "node_9_1599274461181",
+      "previous_sibling": "node_3_1599274461026"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "당신이 의도한 것은",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "해당 항목 없음"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "당신이 의도한 것은"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "신조어 알림이",
+  "language": "ko",
+  "description": ""
+}
