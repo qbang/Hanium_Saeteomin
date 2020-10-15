@@ -2,10 +2,8 @@ package com.example.hanium_saeteomin.network;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ApiService {
@@ -19,14 +17,17 @@ public interface ApiService {
     @POST("new_word")
     Call<JsonArray> GetTodayWord(@Body RequestGetTodayWord body);
 
-    @GET("quiz")
-    Call<JsonArray> GetQuizList();
+    @POST("quiz")
+    Call<JsonObject> GetQuizList(@Body RequestGetQuizList body);
 
-    @POST("quiz_result")
-    Call<JsonObject> QuizResult(@Body SendQuizResult body);
+    @POST("save_score")
+    Call<JsonObject> SaveScore(@Body SendQuizResult body);
 
     @POST("board")
     Call<JsonArray> GetBoardList();
+
+    @POST("test")
+    Call<JsonObject> RequestSolution(@Body RequestSolution body);
 
 
 //    @HTTP(method = "GET",path="login/",hasBody = true)

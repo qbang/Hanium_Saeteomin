@@ -2,13 +2,10 @@ package com.example.hanium_saeteomin.bottomnavigation;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,49 +15,46 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.hanium_saeteomin.R;
 import com.example.hanium_saeteomin.chatfragment.ChatDictionaryData;
 import com.example.hanium_saeteomin.chatfragment.ChatQuizActivity;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.example.hanium_saeteomin.network.RequestSolution;
+import com.example.hanium_saeteomin.network.RetrofitClient;
+import com.google.gson.JsonObject;
 import java.util.ArrayList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ChattingFragment extends Fragment implements Button.OnClickListener{
 
-    ListView listview;
+    private ListView listview;
     static ChatDictionaryAdapter adapter;
-    ImageView goQuiz;
-    Button verify;
-    TextView question;
+    private ImageView goQuiz;
+    private Button verify;
+    private TextView question;
+    private String rsp;
+    private RetrofitClient retrofitClient;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         question = (TextView) view.findViewById(R.id.question);
-
         goQuiz = (ImageView)view.findViewById(R.id.goQuiz);
         verify = (Button) view.findViewById(R.id.verify);
+
         goQuiz.setOnClickListener(this);
-        verify.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                String params = question.getText().toString();
-                adapter.addItem(params,0);
-                new RestAPITask("http://10.0.2.2:5000/"+params).execute();
-            }
-        });
+        verify.setOnClickListener(this);
 
         adapter = new ChatDictionaryAdapter();
+        retrofitClient = new RetrofitClient();
+
         listview = (ListView) view.findViewById(R.id.listview);
         listview.setAdapter(adapter);
         listview.setSelection(adapter.getCount() - 1);
         listview.setAdapter(adapter);
+        listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
     }
 
@@ -80,45 +74,38 @@ public class ChattingFragment extends Fragment implements Button.OnClickListener
                 intent = new Intent(getContext(), ChatQuizActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.verify:
+                String params = question.getText().toString();
+                adapter.addItem(params,0);
+                adapter.notifyDataSetChanged();
+                callBotTask(params);
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
         }
     }
 
-    public static class RestAPITask extends AsyncTask<Integer, Void, Void> {
-        protected String mURL;
+    private void callBotTask(String params){
+        RequestSolution requestSolution = new RequestSolution(params);
 
-        public RestAPITask(String url) {
-            mURL = url;
-        }
-
-        protected Void doInBackground(Integer... params) {
-            String result = null;
-
-            try {
-                URL url = new URL(mURL);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
-                InputStream is = conn.getInputStream();
-
-                StringBuilder builder = new StringBuilder();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    builder.append(line);
-                }
-
-                result = builder.toString();
-                adapter.addItem(result,1);
-                adapter.notifyDataSetChanged();
+        Call<JsonObject> call = retrofitClient.apiService.RequestSolution(requestSolution);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+//              rsp = response.body().toString();
+                rsp = "응답을 받아오는데 성공하였습니다.";
+                adapter.addItem(rsp,1);
             }
-            catch (Exception e) {
-                Log.e("REST_API", "GET method failed: " + e.getMessage());
-                e.printStackTrace();
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                adapter.addItem("응답을 받아오는데 실패하였습니다.",1);
+                Log.d("faillllll",t.toString());
             }
-            return null;
-        }
+        });
+        adapter.notifyDataSetChanged();
     }
+
     public static class ChatDictionaryAdapter extends BaseAdapter {
         private static final int ITEM_VIEW_TYPE_REQ = 0;
         private static final int ITEM_VIEW_TYPE_RES = 1;
@@ -209,4 +196,4 @@ public class ChattingFragment extends Fragment implements Button.OnClickListener
         }
     }
 
-    }
+}

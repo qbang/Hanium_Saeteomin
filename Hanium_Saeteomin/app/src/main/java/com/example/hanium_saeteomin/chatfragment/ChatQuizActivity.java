@@ -1,6 +1,8 @@
 package com.example.hanium_saeteomin.chatfragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,130 +12,164 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.hanium_saeteomin.R;
+import com.example.hanium_saeteomin.network.RequestGetQuizList;
 import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.example.hanium_saeteomin.network.SendQuizResult;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import java.net.HttpURLConnection;
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import static com.example.hanium_saeteomin.LoginActivity.user_id;
 
-public class ChatQuizActivity extends AppCompatActivity {
-    ListView listview;
-    ChatQuizActivity.ChatQuizAdapter adapter;
-    Button verify;
-    TextView question;
-    HttpURLConnection conn;
-    // 버튼 누를 때마다 연결 요청할 수 없으니 count
-    int connectionCount = 0;
+public class ChatQuizActivity extends AppCompatActivity implements Button.OnClickListener{
+    private ListView listview;
+    private ChatQuizActivity.ChatQuizAdapter adapter;
+    private Button verify;
+    private TextView question;
+    private int score;
+    private String uid = user_id;
+    boolean check = true;
+    private RetrofitClient retrofitClient;
+    private RequestGetQuizList requestGetQuizList;
+    private JSONArray qlist;
+    private int num;
+    private JSONObject jsonObject;
 
-    // 리턴이 스트링으로 된다 치면
-    String result = null;
-    String[] quizlist = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_quiz);
+
         question = (TextView) findViewById(R.id.question);
         verify = (Button) findViewById(R.id.verify);
-        verify.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                connectionCount ++;
-                String params = question.getText().toString();
-                adapter.addItem(params,0);
-                final RetrofitClient retrofitClient1 = new RetrofitClient();
-                final RetrofitClient retrofitClient2 = new RetrofitClient();
-//                String user_id = "abc@abc.com";
-//                String user_pw = "1234";
-                Call<JsonArray> call = retrofitClient1.apiService.GetQuizList();
-                call.enqueue(new Callback<JsonArray>() {
-                    @Override
-                    public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
-                        Log.d("quizzzzzzzzzzz",response.body().toString());
-                        SendQuizResult sendQuizResult = new SendQuizResult("abc", "2020-09-15", 80);
-                        Call<JsonObject> call2 = retrofitClient2.apiService.QuizResult(sendQuizResult);
-                        call2.enqueue(new Callback<JsonObject>() {
-                            @Override
-                            public void onResponse(Call<JsonObject> call2, Response<JsonObject> response2) {
-                                Log.d("successs",response2.body().toString());
-                            }
-
-                            @Override
-                            public void onFailure(Call<JsonObject> call2, Throwable t2) {
-                                Log.d("register",t2.getMessage());
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onFailure(Call<JsonArray> call, Throwable t) {
-//                        Log.d("login",t.getMessage());
-
-                    }
-                });
-//                new ChatQuizActivity.RestAPITask("http://10.0.2.2:5000/"+params).execute();
-            }
-        });
 
         adapter = new ChatQuizActivity.ChatQuizAdapter();
         listview = (ListView) findViewById(R.id.listview);
         listview.setAdapter(adapter);
         listview.setSelection(adapter.getCount() - 1);
         listview.setAdapter(adapter);
+
+        retrofitClient = new RetrofitClient();
+        requestGetQuizList = new RequestGetQuizList(uid);
+
+        verify.setOnClickListener(this);
+
+        if(startQuizTask()){
+            adapter.addItem("이미 오늘의 퀴즈를 다 푸셨습니다.",1);
+        }else{
+            adapter.addItem("퀴즈를 시작합니다.",1);
+            botTask();
+        }
     }
 
-//    class RestAPITask extends AsyncTask<Integer, Void, Void> {
-//        protected String mURL;
-//
-//        public RestAPITask(String url) {
-//            mURL = url;
-//        }
-//        protected Void doInBackground(Integer... params) {
-//            try {
-//                URL url = new URL(mURL);
-//                if(connectionCount == 1 || connectionCount>10){
-//                    if(connectionCount>10){
-//                        connectionCount = 1;
-//                    }
-//                    conn = (HttpURLConnection) url.openConnection();
-//                    conn.setRequestMethod("GET");
-//                    InputStream is = conn.getInputStream();
-//
-//                    StringBuilder builder = new StringBuilder();
-//                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-//                    String line;
-//                    while ((line = reader.readLine()) != null) {
-//                        builder.append(line);
-//                    }
-//                    result = builder.toString();
-//                    // 1,2,3,4 이런식으로 넘어온다고 가정
-//                    quizlist = result.split(",");
-//                    System.out.println("connection");
-//                }
-//                System.out.println("횟수"+connectionCount);
-//                adapter.addItem(result,1);
-//            }
-//            catch (Exception e) {
-//                Log.e("REST_API", "GET method failed: " + e.getMessage());
-//                e.printStackTrace();
-//            }
-//            return null;
-//        }
-//        @Override
-//        protected void onPostExecute(Void aVoid) {
-//            super.onPostExecute(aVoid);
-//            adapter.notifyDataSetChanged();
-//        }
-//    }
+    @Override
+    public void onClick(View view) {
+        try {
+            String params = question.getText().toString();
+            adapter.addItem(params,0);
+            if(jsonObject != null){
+                if (params.equals(jsonObject.getString("answer")) && check==false) {
+                    adapter.addItem("정답입니다.",1);
+                    score += 10;
+                }else{
+                    adapter.addItem("정답이 아닙니다. 정답은 "+jsonObject.getString("answer")+"번 입니다.",1);
+                }
+            }
+
+            adapter.notifyDataSetChanged();
+            num ++;
+            botTask();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean startQuizTask(){
+        Call<JsonObject> call = retrofitClient.apiService.GetQuizList(requestGetQuizList);
+        try{
+            call.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    if(response.isSuccessful()){
+                        try {
+                            JSONObject jsonObject = new JSONObject(response.body().toString());
+                            JSONArray jsonArray = jsonObject.getJSONArray("result");
+                            Gson gson = new Gson();
+                            ArrayList<ChatQuizVO> quiz_list = new ArrayList<>();
+
+                            int index = 0;
+                            while(index < jsonArray.length()){
+                                ChatQuizVO chatQuizVO = gson.fromJson(jsonArray.get(index).toString(), ChatQuizVO.class);
+                                quiz_list.add(chatQuizVO);
+
+                                index++;
+                            }
+//                        qlist = new JSONArray(response.body());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
+                        Log.d("응답받아오는","뎅 실패");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call3, Throwable t3) {
+                    check = false;
+                    Log.d("faillllll",t3.toString());
+                }
+            });
+        }catch (Exception e){
+            check = false;
+        }
+
+        return check;
+    }
+
+    private void botTask(){
+        if(jsonObject != null && num != 10) {
+            try {
+                jsonObject = qlist.getJSONObject(num);
+                String str = jsonObject.getString("question\n")
+                        + "\n1)" + jsonObject.getString("E1")
+                        + "\n2)" + jsonObject.getString("E2")
+                        + "\n3)" + jsonObject.getString("E3")
+                        + "\n4)" + jsonObject.getString("E4");
+                adapter.addItem(str, 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }else{
+            SendQuizResult sendQuizResult = new SendQuizResult(uid, score);
+            Call<JsonObject> call2 = retrofitClient.apiService.SaveScore(sendQuizResult);
+            call2.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    Log.d("success",response.body().toString());
+                    adapter.addItem("점수는 "+score+"점입니다. 수고하셨습니다.", 1);
+                    check = true;
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Log.d("fail",t.toString());
+                    adapter.addItem("점수를 등록하는데 실패하였습니다. 다시 시도해주세요.", 1);
+                }
+            });
+        }
+        adapter.notifyDataSetChanged();
+    }
+
     public static class ChatQuizAdapter extends BaseAdapter {
         private static final int ITEM_VIEW_TYPE_REQ = 0;
         private static final int ITEM_VIEW_TYPE_RES = 1;

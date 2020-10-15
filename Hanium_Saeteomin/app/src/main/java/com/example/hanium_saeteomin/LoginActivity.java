@@ -20,6 +20,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     EditText et_id;
     EditText et_pw;
+    public static String user_id = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +44,9 @@ public class LoginActivity extends AppCompatActivity {
 //            Log.d("pw",pw);
         }
 
-        String id = pref.getString("id","");
+        user_id = pref.getString("id","");
         String pw = pref.getString("pw","");
-        et_id.setText(id);
+        et_id.setText(user_id);
         et_pw.setText(pw);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
