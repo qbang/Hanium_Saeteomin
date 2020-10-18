@@ -20,6 +20,8 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     EditText et_id;
     EditText et_pw;
+    String userId;
+    String userName;
     public static String user_id = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,11 @@ public class LoginActivity extends AppCompatActivity {
         et_id.setText(user_id);
         et_pw.setText(pw);
 
+        SharedPreferences pref2 = getSharedPreferences("user",MODE_PRIVATE);
+        userId = pref2.getString("userId","");
+        userName = pref2.getString("userName","");
+
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +77,8 @@ public class LoginActivity extends AppCompatActivity {
                                 setAutoLogin();
                             }
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtra("userId",userId);
+                            intent.putExtra("userName",userName);
                             startActivity(intent);
 
 

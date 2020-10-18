@@ -20,9 +20,9 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:text="이남북"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profileImg"
         app:layout_constraintTop_toTopOf="@+id/profileImg" />
 
@@ -32,23 +32,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1h"
-        android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/profileImg"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <Button
-        android:id="@+id/btn_delete_board"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:text="X"
-        android:visibility="gone"
-        android:background="#fff"
-        android:textSize="10sp"
         android:layout_marginRight="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/profileImg"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/profileImg" />
+        app:layout_constraintTop_toTopOf="@+id/name" />
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_delete_board"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:text="D"-->
+<!--        android:textSize="10sp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/profileImg"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/profileImg" />-->
 
 
     <TextView

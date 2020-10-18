@@ -1,9 +1,11 @@
 package com.example.hanium_saeteomin.boardfragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,10 +22,18 @@ import java.util.ArrayList;
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder>{
 
     private ArrayList<CommentData> mList;
-
-    public CommentAdapter(ArrayList<CommentData> list) {
+    private String myName;
+    public CommentAdapter(ArrayList<CommentData> list,String userName) {
         this.mList = list;
+        this.myName = userName;
     }
+
+    onClickDelete mListener ;
+
+    void setListener(onClickDelete mListener){
+        this.mListener = mListener;
+    }
+
 
     @NonNull
     @Override
@@ -31,7 +41,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_feed_comment, parent, false);
-        CommentAdapter.ViewHolder viewHolder = new CommentAdapter.ViewHolder(view);
+        CommentAdapter.ViewHolder viewHolder = new CommentAdapter.ViewHolder(view,myName);
         return viewHolder;
 
     }
@@ -44,6 +54,11 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         holder.writeDate.setText(mList.get(position).getWrite_date());
         holder.Comment.setText(mList.get(position).getComment());
 
+        if(mList.get(position).getUser_name().equals(myName)){
+            holder.btnDelete.setVisibility(View.VISIBLE);
+        }else{
+            holder.btnDelete.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -51,21 +66,32 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         return mList.size();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         protected ImageView image;
         protected TextView userName;
         protected TextView writeDate;
         protected TextView Comment;
+        protected Button btnDelete;
 
-
-
-        public ViewHolder(View view) {
+        public ViewHolder(View view,String myName) {
             super(view);
             this.image = (ImageView) view.findViewById(R.id.profileImg);
             this.userName = (TextView) view.findViewById(R.id.name);
             this.writeDate = (TextView) view.findViewById(R.id.timeline);
             this.Comment = (TextView) view.findViewById(R.id.question);
+            btnDelete = view.findViewById(R.id.btn_delete_board);
+
+
+
+            btnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListener.onClickDelete(getAdapterPosition());
+                }
+            });
 
 
         }

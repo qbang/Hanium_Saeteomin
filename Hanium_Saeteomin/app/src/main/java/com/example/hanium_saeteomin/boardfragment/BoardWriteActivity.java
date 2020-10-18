@@ -34,6 +34,9 @@ public class BoardWriteActivity extends AppCompatActivity {
         userId = getIntent().getStringExtra("userId");
         userName = getIntent().getStringExtra("userName");
 
+        Log.d("user2",userId);
+        Log.d("user2",userName);
+
         etContent = findViewById(R.id.et_content);
         Button btn_back = findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -47,9 +50,14 @@ public class BoardWriteActivity extends AppCompatActivity {
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Todo user_id, user_name 받아오기
                 RetrofitClient retrofitClient = new RetrofitClient();
                 RequestWriteFeed requestWriteFeed = new RequestWriteFeed(userId,userName,etContent.getText().toString());
+
+                Log.d("userId",userId);
+                Log.d("userName",userName);
+                Log.d("useret",etContent.getText().toString());
+
+
                 Call<JsonObject> call = retrofitClient.apiService.WriteBoard(requestWriteFeed);
                 call.enqueue(new Callback<JsonObject>() {
                     @Override
@@ -57,10 +65,9 @@ public class BoardWriteActivity extends AppCompatActivity {
                         Log.d("피드 등록",response.body().toString());
                         if(response.body().toString().contains("완료")) {
                             //Todo 게시글 추가
-                            Intent returnIntent = new Intent();
-                            returnIntent.putExtra("result",response.body().toString());
-                            setResult(Activity.RESULT_OK,returnIntent);
                             finish();
+                        }else{
+                            Log.d("error",response.errorBody().toString());
                         }
                     }
 
@@ -75,7 +82,9 @@ public class BoardWriteActivity extends AppCompatActivity {
             }
         });
 
+        }
 
 
     }
-}
+
+

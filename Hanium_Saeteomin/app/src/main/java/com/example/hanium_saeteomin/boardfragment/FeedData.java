@@ -15,12 +15,12 @@ public class FeedData implements Serializable {
     String content;
     int good_count;
     String user_id;
-    String write_date;
+    String to_char;
 
     public FeedData() {
     }
 
-    public FeedData(String board_id, String user_name, String img_url, int comment_number, String content, int good_count, String user_id, String write_date) {
+    public FeedData(String board_id, String user_name, String img_url, int comment_number, String content, int good_count, String user_id, String to_char) {
         this.board_id = board_id;
         this.user_name = user_name;
         this.img_url = img_url;
@@ -28,7 +28,7 @@ public class FeedData implements Serializable {
         this.content = content;
         this.good_count = good_count;
         this.user_id = user_id;
-        this.write_date = write_date;
+        this.to_char = to_char;
     }
 
     public String getUser_name() {
@@ -88,11 +88,11 @@ public class FeedData implements Serializable {
     }
 
     public String getWrite_date() {
-        return write_date;
+        return to_char;
     }
 
     public void setWrite_date(String write_date) {
-        this.write_date = write_date;
+        this.to_char = write_date;
     }
 
 }

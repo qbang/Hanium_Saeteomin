@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.hanium_saeteomin.bottomnavigation.BoardFragment;
@@ -20,13 +23,22 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private Fragment fragment_home = new HomeFragment();
     private Fragment fragment_chatting = new ChattingFragment();
-    private Fragment fragment_board = new BoardFragment();
+    private Fragment fragment_board;
     private Fragment fragment_mypage = new MyPageFragment();
+
+    String userId;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences pref2 = getSharedPreferences("user",MODE_PRIVATE);
+        userId = pref2.getString("userId","");
+        userName = pref2.getString("userName","");
+
+        fragment_board = new BoardFragment(userId,userName);
 
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout,fragment_home).commitAllowingStateLoss();

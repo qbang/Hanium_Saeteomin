@@ -1,6 +1,7 @@
 package com.example.hanium_saeteomin;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -75,6 +76,12 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                             if (response.body().toString().contains("성공")) {
+                                SharedPreferences pref2 = getSharedPreferences("user",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = pref2.edit();
+                                editor.putString("userId",et_email.getText().toString());
+                                editor.putString("userName",et_nickname.getText().toString());
+
+                                editor.commit();
                                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);
                             }else {
