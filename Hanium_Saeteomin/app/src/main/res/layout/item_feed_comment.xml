@@ -37,17 +37,32 @@
         app:layout_constraintTop_toTopOf="@+id/name" />
 
 
-    <Button
+
+    <ImageButton
+        android:id="@+id/btn_update_board"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:visibility="visible"
+        android:background="#fff"
+        android:src="@drawable/ic_baseline_create_24"
+        android:textSize="10sp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImg"
+        app:layout_constraintEnd_toStartOf="@+id/btn_delete_board"
+        app:layout_constraintTop_toTopOf="@+id/profileImg" />
+
+    <ImageButton
         android:id="@+id/btn_delete_board"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:text="X"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_baseline_clear_24"
+        android:visibility="visible"
         android:background="#fff"
         android:textSize="10sp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/timeline"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/timeline" />
+        app:layout_constraintTop_toTopOf="@+id/profileImg" />
 
     <TextView
         android:id="@+id/question"

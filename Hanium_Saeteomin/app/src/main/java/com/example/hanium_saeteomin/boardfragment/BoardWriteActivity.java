@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.hanium_saeteomin.R;
+import com.example.hanium_saeteomin.network.RequestUpdateBoard;
 import com.example.hanium_saeteomin.network.RequestWriteFeed;
 import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.google.gson.Gson;
@@ -26,18 +27,28 @@ public class BoardWriteActivity extends AppCompatActivity {
     String userName;
     EditText etContent;
 
+    Boolean update;
+    String boardId;
+    String content;
+    private int WRITE_OK= 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_write);
 
+        etContent = findViewById(R.id.et_content);
+
         userId = getIntent().getStringExtra("userId");
         userName = getIntent().getStringExtra("userName");
 
-        Log.d("user2",userId);
-        Log.d("user2",userName);
 
-        etContent = findViewById(R.id.et_content);
+        update = getIntent().getBooleanExtra("update",false);
+        content = getIntent().getStringExtra("beforeContent");
+        boardId = getIntent().getStringExtra("boardId");
+
+
+
         Button btn_back = findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,40 +58,68 @@ public class BoardWriteActivity extends AppCompatActivity {
         });
 
         Button btn_check = findViewById(R.id.btn_check);
+
+        if(update){
+            etContent.setText(content);
+        }
+
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RetrofitClient retrofitClient = new RetrofitClient();
-                RequestWriteFeed requestWriteFeed = new RequestWriteFeed(userId,userName,etContent.getText().toString());
+                if(update){
+                    RequestUpdateBoard requestUpdateBoard = new RequestUpdateBoard(boardId,etContent.getText().toString());
+                    Call<JsonObject> call = retrofitClient.apiService.UpdateBoard(requestUpdateBoard);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            if (response.body().toString().contains("완료")) {
+                                Intent intent = new Intent();
+                                intent.putExtra("content",etContent.getText().toString());
+                                setResult(WRITE_OK,intent);
+                                finish();
 
-                Log.d("userId",userId);
-                Log.d("userName",userName);
-                Log.d("useret",etContent.getText().toString());
-
-
-                Call<JsonObject> call = retrofitClient.apiService.WriteBoard(requestWriteFeed);
-                call.enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        Log.d("피드 등록",response.body().toString());
-                        if(response.body().toString().contains("완료")) {
-                            //Todo 게시글 추가
-                            finish();
-                        }else{
-                            Log.d("error",response.errorBody().toString());
+                            } else {
+                                Log.d("error", response.errorBody().toString());
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                        Log.d("피드 등록","실패");
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("comment", "실패");
 
-                    }
-                });
+                        }
+                    });
+                }
+                else {
+                    RequestWriteFeed requestWriteFeed = new RequestWriteFeed(userId, userName, etContent.getText().toString());
+//                    Log.d("userId", userId);
+//                    Log.d("userName", userName);
+//                    Log.d("useret", etContent.getText().toString());
+                    Call<JsonObject> call = retrofitClient.apiService.WriteBoard(requestWriteFeed);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            Log.d("피드 등록", response.body().toString());
+                            if (response.body().toString().contains("완료")) {
+                                //Todo 게시글 추가
+                                finish();
+                            } else {
+                                Log.d("error", response.errorBody().toString());
+                            }
+                        }
 
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("피드 등록", "실패");
 
+                        }
+                    });
+
+                }
             }
         });
+
 
         }
 

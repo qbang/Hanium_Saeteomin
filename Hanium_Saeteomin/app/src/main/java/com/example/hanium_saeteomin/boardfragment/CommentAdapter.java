@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,9 +30,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     }
 
     onClickDelete mListener ;
+    onClickUpdate mListener2;
 
     void setListener(onClickDelete mListener){
         this.mListener = mListener;
+    }
+    void setListener2(onClickUpdate mListener2){
+        this.mListener2 = mListener2;
     }
 
 
@@ -56,8 +61,11 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         if(mList.get(position).getUser_name().equals(myName)){
             holder.btnDelete.setVisibility(View.VISIBLE);
+            holder.btnUpdate.setVisibility(View.VISIBLE);
         }else{
             holder.btnDelete.setVisibility(View.GONE);
+            holder.btnUpdate.setVisibility(View.GONE);
+
         }
     }
 
@@ -74,7 +82,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         protected TextView userName;
         protected TextView writeDate;
         protected TextView Comment;
-        protected Button btnDelete;
+        protected ImageButton btnDelete;
+        protected ImageButton btnUpdate;
 
         public ViewHolder(View view,String myName) {
             super(view);
@@ -83,6 +92,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             this.writeDate = (TextView) view.findViewById(R.id.timeline);
             this.Comment = (TextView) view.findViewById(R.id.question);
             btnDelete = view.findViewById(R.id.btn_delete_board);
+            btnUpdate = view.findViewById(R.id.btn_update_board);
 
 
 
@@ -90,6 +100,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     mListener.onClickDelete(getAdapterPosition());
+                }
+            });
+
+            btnUpdate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListener2.onClickUpdate(getAdapterPosition());
                 }
             });
 

@@ -10,13 +10,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hanium_saeteomin.R;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -26,6 +24,11 @@ public class QuestionFeedAdapter extends BaseAdapter {
 
     public QuestionFeedAdapter(){
 
+    }
+    clickLike mListener ;
+
+    public void setListener(clickLike mListener){
+        this.mListener = mListener;
     }
 
     @Override
@@ -48,7 +51,7 @@ public class QuestionFeedAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final int pos = position;
         final Context context = parent.getContext();
 
@@ -61,8 +64,16 @@ public class QuestionFeedAdapter extends BaseAdapter {
         TextView userName = (TextView)convertView.findViewById(R.id.name);
         TextView timeLine = (TextView)convertView.findViewById(R.id.timeline);
         TextView tvContent = (TextView)convertView.findViewById(R.id.question);
+        ImageView imgLike = (ImageView)convertView.findViewById(R.id.img_like);
         TextView likeCount = (TextView)convertView.findViewById(R.id.favorite);
         TextView commentCount = (TextView)convertView.findViewById(R.id.chatNum);
+
+        imgLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.clickLike(position);
+            }
+        });
 
         FeedData questionFeedData = questionFeedDataList.get(position);
 

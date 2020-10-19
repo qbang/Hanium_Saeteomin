@@ -46,6 +46,14 @@ public interface ApiService {
     @POST("comment_delete")
     Call<JsonObject> DeleteComment(@Body RequestDeleteComment body);
 
+    @POST("comment_rewrite")
+    Call<JsonObject> UpdateComment(@Body RequestUpdateComment body);
+
+    @POST("board_rewrite")
+    Call<JsonObject> UpdateBoard(@Body RequestUpdateBoard body);
+
+    @POST("board_like")
+    Call<JsonObject> ClickLike(@Body RequestClickLike body );
 //    @HTTP(method = "GET",path="login/",hasBody = true)
 //    Call<JsonObject> getLogin(@Body RequestLogin body);
 

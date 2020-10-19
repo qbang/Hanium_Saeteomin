@@ -1,11 +1,11 @@
 package com.example.hanium_saeteomin.boardfragment;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,30 +17,28 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hanium_saeteomin.DialogBuilder;
 import com.example.hanium_saeteomin.R;
-import com.example.hanium_saeteomin.bottomnavigation.BoardFragment;
-import com.example.hanium_saeteomin.homefragment.AdapterQuiz;
 import com.example.hanium_saeteomin.network.RequestDeleteBoard;
 import com.example.hanium_saeteomin.network.RequestDeleteComment;
 import com.example.hanium_saeteomin.network.RequestGetComment;
+import com.example.hanium_saeteomin.network.RequestUpdateBoard;
+import com.example.hanium_saeteomin.network.RequestUpdateComment;
 import com.example.hanium_saeteomin.network.RequestWriteComment;
 import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BoardDetailActivity extends AppCompatActivity implements onClickDelete{
+public class BoardDetailActivity extends AppCompatActivity implements onClickDelete,onClickUpdate{
 
     ArrayList<CommentData> commentList;
     CommentAdapter adapter;
@@ -52,7 +50,13 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
     String userId;
     String userName;
     TimeConverter timeConverter = new TimeConverter();
+    String content;
+    TextView tvContent;
+    TextView tvTimeLine;
+     EditText editText;
+     Boolean commentUpdate;
 
+    private int WRITE_OK= 1;
     @Override
     protected void onResume() {
         super.onResume();
@@ -68,8 +72,8 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
         View itemView = LayoutInflater.from(this).inflate(R.layout.question_feed_layout,container, false);
         ImageView tvImgUrl = itemView.findViewById(R.id.profileImg);
         TextView tvUserName= itemView.findViewById(R.id.name);
-        TextView tvTimeLine = itemView.findViewById(R.id.timeline);
-        TextView tvContent = itemView.findViewById(R.id.question);
+        tvTimeLine = itemView.findViewById(R.id.timeline);
+        tvContent = itemView.findViewById(R.id.question);
 //        ImageView imgLike = itemView.findViewById(R.id.imageView2);
         TextView likeCount = itemView.findViewById(R.id.favorite);
 
@@ -83,15 +87,22 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
         userId = getIntent().getStringExtra("userId");
         userName = getIntent().getStringExtra("userName");
 
-        Button btnDelete = itemView.findViewById(R.id.btn_delete_board);
+        ImageButton btnDelete = itemView.findViewById(R.id.btn_delete_board);
+        ImageButton btnUpdate = itemView.findViewById(R.id.btn_update_board);
+
+        commentUpdate = false;
 
         if(feedData.getUser_name().equals(userName)){
             btnDelete.setVisibility(View.VISIBLE);
+            btnUpdate.setVisibility(View.VISIBLE);
         }else{
             btnDelete.setVisibility(View.GONE);
+            btnUpdate.setVisibility(View.GONE);
         }
 
-        final EditText editText = findViewById(R.id.editText);
+
+
+        editText = findViewById(R.id.editText);
         ImageButton btnSend = findViewById(R.id.btn_send_message);
 
 
@@ -118,6 +129,7 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
         rv_board_comment.setLayoutManager(new LinearLayoutManager(getApplicationContext())) ;
         adapter = new CommentAdapter(commentList,userName) ;
         adapter.setListener(this);
+        adapter.setListener2(this);
         rv_board_comment.setAdapter(adapter);
 
 //        getCommentList();
@@ -126,36 +138,54 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                Log.d("user",boardId);
-//                Log.d("user",userId);
-//                Log.d("user",userName);
-//                Log.d("user",editText.getText().toString());
-
                 RetrofitClient retrofitClient = new RetrofitClient();
-                RequestWriteComment requestWriteComment = new RequestWriteComment(boardId,userId,userName,editText.getText().toString());
-                Call<JsonObject> call = retrofitClient.apiService.WriteComment(requestWriteComment);
-                call.enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        Log.d("피드 등록",response.body().toString());
-                        if(response.body().toString().contains("완료")) {
+                if(commentUpdate) {
+                    RequestUpdateComment requestUpdateComment = new RequestUpdateComment(boardId,userId,editText.getText().toString());
+                    Call<JsonObject> call = retrofitClient.apiService.UpdateComment(requestUpdateComment);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            if (response.body().toString().contains("완료")) {
+                                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                                editText.setText("");
+                                getCommentList();
+                            } else {
+                                Log.d("error", response.errorBody().toString());
+                            }
+                        }
 
-                            editText.setText("");
-                            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                            imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-                            getCommentList();
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("comment", "실패");
 
                         }
-                    }
+                    });
 
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                        Log.d("피드 등록","실패");
+                }else {
+                    RequestWriteComment requestWriteComment = new RequestWriteComment(boardId, userId, userName, editText.getText().toString());
+                    Call<JsonObject> call = retrofitClient.apiService.WriteComment(requestWriteComment);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            Log.d("피드 등록", response.body().toString());
+                            if (response.body().toString().contains("완료")) {
 
-                    }
-                });
+                                editText.setText("");
+                                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                                getCommentList();
 
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("피드 등록", "실패");
+
+                        }
+                    });
+                }
             }
         });
 
@@ -195,6 +225,19 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
                         dialogBuilder.dismiss();
                     }
                 });
+
+            }
+        });
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO 게시글 수정
+                Intent intent = new Intent(BoardDetailActivity.this,BoardWriteActivity.class);
+                intent.putExtra("beforeContent",feedData.getContent());
+                intent.putExtra("update",true);
+                intent.putExtra("boardId",boardId);
+                startActivityForResult(intent,WRITE_OK);
 
             }
         });
@@ -279,8 +322,31 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
         });
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == WRITE_OK){
+            content = data.getStringExtra("content");
+
+            tvContent.setText(content);
+            tvTimeLine.setText(timeConverter.toFormat(feedData.getWrite_date()));
+        }
+    }
+
+    @Override
+    public void onClickUpdate(int position) {
+        editText.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText, 0);
+        commentUpdate = true;
+    }
 }
 
 interface onClickDelete{
     void onClickDelete(int position);
+}
+
+interface onClickUpdate{
+    void onClickUpdate(int position);
 }

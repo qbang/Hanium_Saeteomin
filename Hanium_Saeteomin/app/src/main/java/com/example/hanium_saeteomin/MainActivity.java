@@ -6,13 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.hanium_saeteomin.bottomnavigation.BoardFragment;
+import com.example.hanium_saeteomin.boardfragment.BoardFragment;
 import com.example.hanium_saeteomin.bottomnavigation.ChattingFragment;
 import com.example.hanium_saeteomin.bottomnavigation.HomeFragment;
 import com.example.hanium_saeteomin.bottomnavigation.MyPageFragment;

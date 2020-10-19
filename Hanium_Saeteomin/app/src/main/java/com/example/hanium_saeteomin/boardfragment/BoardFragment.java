@@ -1,35 +1,25 @@
-package com.example.hanium_saeteomin.bottomnavigation;
+package com.example.hanium_saeteomin.boardfragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.hanium_saeteomin.R;
-import com.example.hanium_saeteomin.boardfragment.BoardDetailActivity;
-import com.example.hanium_saeteomin.boardfragment.BoardWriteActivity;
-import com.example.hanium_saeteomin.boardfragment.CommentData;
-import com.example.hanium_saeteomin.boardfragment.FeedData;
-import com.example.hanium_saeteomin.boardfragment.QuestionFeedAdapter;
-import com.example.hanium_saeteomin.boardfragment.TimeConverter;
-import com.example.hanium_saeteomin.homefragment.bestword.WordData;
-import com.example.hanium_saeteomin.network.RequestGetComment;
 import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BoardFragment extends Fragment {
+public class BoardFragment extends Fragment implements clickLike {
     //listview 안에는 button click 이벤트 클릭이 안됨!
     ListView listView;
     QuestionFeedAdapter questionFeedAdapter;
@@ -64,7 +54,7 @@ public class BoardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         questionFeedAdapter = new QuestionFeedAdapter();
-
+        questionFeedAdapter.setListener(this);
         FeedList = new ArrayList<FeedData>();
 
         listView = (ListView) view.findViewById(R.id.listview);
@@ -166,5 +156,34 @@ public class BoardFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_board, container, false);
     }
 
+
+    @Override
+    public void clickLike(int position) {
+        //같은 패키지 안에 있어야 접근 가능하다 !
+        //TODO board isLike(Boolean) 보고 좋아요,좋아요취소 api쓰기
+//        RetrofitClient retrofitClient = new RetrofitClient();
+//        RequestClickLike boardId = new RequestClickLike(FeedList.get(position).board_id);
+//        Call<JsonObject> call = retrofitClient.apiService.ClickLike(boardId);
+//        call.enqueue(new Callback<JsonObject>() {
+//            @Override
+//            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+//                if (response.body().toString().contains("완료")) {
+//
+//                } else {
+//                    Log.d("error", response.errorBody().toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JsonObject> call, Throwable t) {
+//                Log.d("comment", "실패");
+//
+//            }
+//        });
+    }
+}
+
+interface clickLike{
+    void clickLike(int position);
 }
 
