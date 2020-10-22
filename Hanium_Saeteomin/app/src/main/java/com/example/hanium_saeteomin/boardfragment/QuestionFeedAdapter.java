@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +84,12 @@ public class QuestionFeedAdapter extends BaseAdapter {
         Glide.with(context).load(questionFeedData.getImg_url()).into(imgProfile);
         userName.setText(questionFeedData.getUser_name());
         timeLine.setText(timeConverter.toFormat(questionFeedData.getWrite_date()));
+
+        if(questionFeedData.getGood_count_ox()==1){
+            Glide.with(context).load(R.drawable.ic_baseline_favorite_24).into(imgLike);
+        }else{
+            Glide.with(context).load(R.drawable.ic_baseline_favorite_border_24).into(imgLike);
+        }
         tvContent.setText(questionFeedData.getContent());
         likeCount.setText(String.valueOf(questionFeedData.getGood_count()));
         commentCount.setText(String.valueOf(questionFeedData.getComment_number()));

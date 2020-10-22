@@ -54,6 +54,10 @@ public interface ApiService {
 
     @POST("board_like")
     Call<JsonObject> ClickLike(@Body RequestClickLike body );
+
+    @POST("board_like_delete")
+    Call<JsonObject> ClickLikeCancel(@Body RequestClickLike body);
+
 //    @HTTP(method = "GET",path="login/",hasBody = true)
 //    Call<JsonObject> getLogin(@Body RequestLogin body);
 

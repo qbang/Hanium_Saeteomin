@@ -13,9 +13,10 @@ public class FeedData implements Serializable {
     String img_url;
     int comment_number;
     String content;
-    int good_count;
+    public int good_count;
     String user_id;
     String to_char;
+    int good_count_ox = 0;
 
     public FeedData() {
     }
@@ -29,6 +30,14 @@ public class FeedData implements Serializable {
         this.good_count = good_count;
         this.user_id = user_id;
         this.to_char = to_char;
+    }
+
+    public int getGood_count_ox() {
+        return good_count_ox;
+    }
+
+    public void setGood_count_ox(int good_count_ox) {
+        this.good_count_ox = good_count_ox;
     }
 
     public String getUser_name() {

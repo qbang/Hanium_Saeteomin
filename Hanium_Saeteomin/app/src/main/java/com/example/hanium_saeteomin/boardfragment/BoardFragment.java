@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.hanium_saeteomin.R;
+import com.example.hanium_saeteomin.network.RequestClickLike;
 import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -64,21 +65,22 @@ public class BoardFragment extends Fragment implements clickLike {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String boardId = FeedList.get(position).getBoard_id();
-                String url = FeedList.get(position).getImg_url();
-                 userName = FeedList.get(position).getUser_name();
-                String content = FeedList.get(position).getContent();
-                int likeCount= FeedList.get(position).getGood_count();
-                int commentCount = FeedList.get(position).getComment_number();
-                 userId = FeedList.get(position).getUser_id();
-                String writeDate = FeedList.get(position).getWrite_date();
+//                String boardId = FeedList.get(position).getBoard_id();
+//                String url = FeedList.get(position).getImg_url();
+//                 userName = FeedList.get(position).getUser_name();
+//                String content = FeedList.get(position).getContent();
+//                int likeCount= FeedList.get(position).getGood_count();
+//                int commentCount = FeedList.get(position).getComment_number();
+//                 userId = FeedList.get(position).getUser_id();
+//                String writeDate = FeedList.get(position).getWrite_date();
+//
+//                FeedData feedData = new FeedData(boardId,userName,url,commentCount,content,likeCount,userId,writeDate);
 
-                FeedData feedData = new FeedData(boardId,userName,url,commentCount,content,likeCount,userId,writeDate);
                 Intent intent =  new Intent(getContext(), BoardDetailActivity.class);
-                intent.putExtra("boardId",boardId);
+                intent.putExtra("boardId",FeedList.get(position).board_id);
                 intent.putExtra("userId",currentUserId);
                 intent.putExtra("userName",currentUserName);
-                intent.putExtra("feedData",feedData);
+                intent.putExtra("feedData",FeedList.get(position));
                 startActivity(intent);
             }
         });
@@ -158,28 +160,53 @@ public class BoardFragment extends Fragment implements clickLike {
 
 
     @Override
-    public void clickLike(int position) {
-        //같은 패키지 안에 있어야 접근 가능하다 !
-        //TODO board isLike(Boolean) 보고 좋아요,좋아요취소 api쓰기
-//        RetrofitClient retrofitClient = new RetrofitClient();
-//        RequestClickLike boardId = new RequestClickLike(FeedList.get(position).board_id);
-//        Call<JsonObject> call = retrofitClient.apiService.ClickLike(boardId);
-//        call.enqueue(new Callback<JsonObject>() {
-//            @Override
-//            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-//                if (response.body().toString().contains("완료")) {
-//
-//                } else {
-//                    Log.d("error", response.errorBody().toString());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<JsonObject> call, Throwable t) {
-//                Log.d("comment", "실패");
-//
-//            }
-//        });
+    public void clickLike(final int position) {
+       // 같은 패키지 안에 있어야 접근 가능하다 !
+       // TODO board isLike(Boolean) 보고 좋아요,좋아요취소 api쓰기
+        RetrofitClient retrofitClient = new RetrofitClient();
+        if(FeedList.get(position).good_count_ox==0){
+            RequestClickLike boardId = new RequestClickLike(FeedList.get(position).board_id);
+            Call<JsonObject> call = retrofitClient.apiService.ClickLike(boardId);
+            call.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    if (response.body().toString().contains("완료")) {
+                            FeedList.get(position).setGood_count_ox(1);
+                            getBoardList();
+                    } else {
+                        Log.d("error", response.errorBody().toString());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Log.d("comment", "실패");
+
+                }
+            });
+        }else{
+                RequestClickLike boardId = new RequestClickLike(FeedList.get(position).board_id);
+                Call<JsonObject> call = retrofitClient.apiService.ClickLikeCancel(boardId);
+                call.enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        if (response.body().toString().contains("취소")) {
+                            FeedList.get(position).setGood_count_ox(0);
+                            getBoardList();
+                        } else {
+                            Log.d("error", response.errorBody().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Log.d("comment", "실패");
+
+                    }
+                });
+            }
+
+
     }
 }
 

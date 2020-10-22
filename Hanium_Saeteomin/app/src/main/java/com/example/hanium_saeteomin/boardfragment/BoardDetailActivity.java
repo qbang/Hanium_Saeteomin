@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.hanium_saeteomin.DialogBuilder;
 import com.example.hanium_saeteomin.R;
+import com.example.hanium_saeteomin.network.RequestClickLike;
 import com.example.hanium_saeteomin.network.RequestDeleteBoard;
 import com.example.hanium_saeteomin.network.RequestDeleteComment;
 import com.example.hanium_saeteomin.network.RequestGetComment;
@@ -74,11 +75,11 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
         TextView tvUserName= itemView.findViewById(R.id.name);
         tvTimeLine = itemView.findViewById(R.id.timeline);
         tvContent = itemView.findViewById(R.id.question);
-//        ImageView imgLike = itemView.findViewById(R.id.imageView2);
-        TextView likeCount = itemView.findViewById(R.id.favorite);
+        final ImageView imgLike = itemView.findViewById(R.id.imageView2);
+        final TextView likeCount = itemView.findViewById(R.id.favorite);
 
         ImageView commentImage = itemView.findViewById(R.id.imageView3);
-        TextView commentCount = itemView.findViewById(R.id.chatNum);
+        final TextView commentCount = itemView.findViewById(R.id.chatNum);
 
         tvCommentCount = findViewById(R.id.tv_comment_count);
 
@@ -100,7 +101,11 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
             btnUpdate.setVisibility(View.GONE);
         }
 
-
+        if(feedData.getGood_count_ox()==1){
+            Glide.with(this).load(R.drawable.ic_baseline_favorite_24).into(imgLike);
+        }else{
+            Glide.with(this).load(R.drawable.ic_baseline_favorite_border_24).into(imgLike);
+        }
 
         editText = findViewById(R.id.editText);
         ImageButton btnSend = findViewById(R.id.btn_send_message);
@@ -239,6 +244,72 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
                 intent.putExtra("boardId",boardId);
                 startActivityForResult(intent,WRITE_OK);
 
+            }
+        });
+
+        imgLike.setOnClickListener(new View.OnClickListener() {
+            int count = feedData.getGood_count();
+            @Override
+            public void onClick(View view) {
+                RetrofitClient retrofitClient = new RetrofitClient();
+                if(feedData.good_count_ox==0){
+                    final RequestClickLike boardId = new RequestClickLike(feedData.board_id);
+                    Call<JsonObject> call = retrofitClient.apiService.ClickLike(boardId);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            if (response.body().toString().contains("완료")) {
+                                feedData.setGood_count_ox(1);
+                                ++count;
+                                likeCount.setText(String.valueOf(count));
+                                Log.d("check1",String.valueOf(count));
+                                if(feedData.getGood_count_ox()==1){
+                                    Glide.with(getApplicationContext()).load(R.drawable.ic_baseline_favorite_24).into(imgLike);
+
+                                }else{
+                                    Glide.with(getApplicationContext()).load(R.drawable.ic_baseline_favorite_border_24).into(imgLike);
+                                }
+
+                            } else {
+                                Log.d("error", response.errorBody().toString());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("comment", "실패");
+
+                        }
+                    });
+                }else{
+                    RequestClickLike boardId = new RequestClickLike(feedData.board_id);
+                    Call<JsonObject> call = retrofitClient.apiService.ClickLikeCancel(boardId);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            if (response.body().toString().contains("취소")) {
+                                feedData.setGood_count_ox(0);
+                                --count;
+                                likeCount.setText(String.valueOf(count));
+                                Log.d("check2",String.valueOf(count));
+                                if(feedData.getGood_count_ox()==1){
+                                    Glide.with(getApplicationContext()).load(R.drawable.ic_baseline_favorite_24).into(imgLike);
+                                }else{
+                                    Glide.with(getApplicationContext()).load(R.drawable.ic_baseline_favorite_border_24).into(imgLike);
+                                }
+
+                            } else {
+                                Log.d("error", response.errorBody().toString());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("comment", "실패");
+
+                        }
+                    });
+                }
             }
         });
     }
