@@ -2,6 +2,8 @@ package com.example.hanium_saeteomin.bottomnavigation;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.text.Edits;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +22,15 @@ import com.example.hanium_saeteomin.chatfragment.ChatDictionaryData;
 import com.example.hanium_saeteomin.chatfragment.ChatQuizActivity;
 import com.example.hanium_saeteomin.network.RequestSolution;
 import com.example.hanium_saeteomin.network.RetrofitClient;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,8 +43,10 @@ public class ChattingFragment extends Fragment implements Button.OnClickListener
     private ImageView goQuiz;
     private Button verify;
     private TextView question;
-    private String rsp;
+    private String[] rsp;
     private RetrofitClient retrofitClient;
+    private JsonElement session_id;
+    private String assistant_id = "4f98009d-9878-4aa7-a115-dff718d05e4c";
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -56,6 +67,9 @@ public class ChattingFragment extends Fragment implements Button.OnClickListener
         listview.setAdapter(adapter);
         listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
+        adapter.addItem("질문을 입력해주세요.",1);
+        adapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -75,26 +89,30 @@ public class ChattingFragment extends Fragment implements Button.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.verify:
-                String params = question.getText().toString();
+                final String params = question.getText().toString();
                 adapter.addItem(params,0);
                 adapter.notifyDataSetChanged();
-                callBotTask(params);
+
+                if(session_id == null){
+                    startBotTask(params);
+                }else{
+                    callBotTask(params);
+                }
+
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
         }
     }
 
-    private void callBotTask(String params){
-        RequestSolution requestSolution = new RequestSolution(params);
-
-        Call<JsonObject> call = retrofitClient.apiService.RequestSolution(requestSolution);
+    public void startBotTask(final String params){
+        Call<JsonObject> call = retrofitClient.apiService.RequestQuizInfo();
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-//              rsp = response.body().toString();
-                rsp = "응답을 받아오는데 성공하였습니다.";
-                adapter.addItem(rsp,1);
+//                assistant_id = String.valueOf(response.body().get("assistant_id"));
+                session_id = response.body().get("session_id");
+                callBotTask(params);
             }
 
             @Override
@@ -103,6 +121,27 @@ public class ChattingFragment extends Fragment implements Button.OnClickListener
                 Log.d("faillllll",t.toString());
             }
         });
+        adapter.notifyDataSetChanged();
+    }
+
+    private void callBotTask(String params){
+        RequestSolution requestSolution = new RequestSolution(assistant_id,session_id,params);
+        Call<JsonObject> call2 = retrofitClient.apiService.RequestSolution(requestSolution);
+        call2.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call2, Response<JsonObject> response2) {
+                rsp = response2.body().get("output").getAsJsonArray().get(0).toString().split("\"");
+                Log.d("eeeeeeeeeeeeeeeee", Arrays.toString(rsp));
+                adapter.addItem(rsp[3],1);
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call2, Throwable t2) {
+                adapter.addItem("응답을 받아오는데 실패하였습니다.",1);
+                Log.d("faillllll",t2.toString());
+            }
+        });
+
         adapter.notifyDataSetChanged();
     }
 
