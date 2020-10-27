@@ -17,19 +17,13 @@ import com.example.hanium_saeteomin.R;
 import com.example.hanium_saeteomin.network.RequestGetQuizList;
 import com.example.hanium_saeteomin.network.RetrofitClient;
 import com.example.hanium_saeteomin.network.SendQuizResult;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import static com.example.hanium_saeteomin.LoginActivity.user_id;
 
 public class ChatQuizActivity extends AppCompatActivity implements Button.OnClickListener{
     private ListView listview;
@@ -37,12 +31,11 @@ public class ChatQuizActivity extends AppCompatActivity implements Button.OnClic
     private Button verify;
     private TextView question;
     private int score;
-    private String uid = user_id;
-    boolean check = true;
+//    private String uid = user_id;
+    private boolean check;
     private RetrofitClient retrofitClient;
-    private RequestGetQuizList requestGetQuizList;
-    private JSONArray qlist;
-    private int num;
+    private JsonArray qlist;
+    private int count;
     private JSONObject jsonObject;
 
     @Override
@@ -59,115 +52,98 @@ public class ChatQuizActivity extends AppCompatActivity implements Button.OnClic
         listview.setSelection(adapter.getCount() - 1);
         listview.setAdapter(adapter);
 
-        retrofitClient = new RetrofitClient();
-        requestGetQuizList = new RequestGetQuizList(uid);
+        count = 0;
+        check = false;
 
         verify.setOnClickListener(this);
 
-        if(startQuizTask()){
-            adapter.addItem("이미 오늘의 퀴즈를 다 푸셨습니다.",1);
-        }else{
-            adapter.addItem("퀴즈를 시작합니다.",1);
-            botTask();
-        }
+        requestQuizList();
     }
 
     @Override
     public void onClick(View view) {
-        try {
-            String params = question.getText().toString();
-            adapter.addItem(params,0);
-            if(jsonObject != null){
-                if (params.equals(jsonObject.getString("answer")) && check==false) {
-                    adapter.addItem("정답입니다.",1);
-                    score += 10;
-                }else{
-                    adapter.addItem("정답이 아닙니다. 정답은 "+jsonObject.getString("answer")+"번 입니다.",1);
-                }
-            }
+        String params = question.getText().toString();
+        adapter.addItem(params,0);
 
-            adapter.notifyDataSetChanged();
-            num ++;
-            botTask();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+        String ans = qlist.get(count-1).getAsJsonObject().get("answer").getAsString();
 
-    private boolean startQuizTask(){
-        Call<JsonObject> call = retrofitClient.apiService.GetQuizList(requestGetQuizList);
-        try{
-            call.enqueue(new Callback<JsonObject>() {
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    if(response.isSuccessful()){
-                        try {
-                            JSONObject jsonObject = new JSONObject(response.body().toString());
-                            JSONArray jsonArray = jsonObject.getJSONArray("result");
-                            Gson gson = new Gson();
-                            ArrayList<ChatQuizVO> quiz_list = new ArrayList<>();
-
-                            int index = 0;
-                            while(index < jsonArray.length()){
-                                ChatQuizVO chatQuizVO = gson.fromJson(jsonArray.get(index).toString(), ChatQuizVO.class);
-                                quiz_list.add(chatQuizVO);
-
-                                index++;
-                            }
-//                        qlist = new JSONArray(response.body());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }else{
-                        Log.d("응답받아오는","뎅 실패");
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<JsonObject> call3, Throwable t3) {
-                    check = false;
-                    Log.d("faillllll",t3.toString());
-                }
-            });
-        }catch (Exception e){
-            check = false;
-        }
-
-        return check;
-    }
-
-    private void botTask(){
-        if(jsonObject != null && num != 10) {
-            try {
-                jsonObject = qlist.getJSONObject(num);
-                String str = jsonObject.getString("question\n")
-                        + "\n1)" + jsonObject.getString("E1")
-                        + "\n2)" + jsonObject.getString("E2")
-                        + "\n3)" + jsonObject.getString("E3")
-                        + "\n4)" + jsonObject.getString("E4");
-                adapter.addItem(str, 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (params.equals(ans) && check==false) {
+            adapter.addItem("정답입니다.",1);
+            score += 10;
+        }else if(check == true){
+            adapter.addItem("이미 오늘의 퀴즈를 모두 푸셨습니다.",1);
         }else{
-            SendQuizResult sendQuizResult = new SendQuizResult(uid, score);
-            Call<JsonObject> call2 = retrofitClient.apiService.SaveScore(sendQuizResult);
-            call2.enqueue(new Callback<JsonObject>() {
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    Log.d("success",response.body().toString());
-                    adapter.addItem("점수는 "+score+"점입니다. 수고하셨습니다.", 1);
-                    check = true;
-                }
-
-                @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
-                    Log.d("fail",t.toString());
-                    adapter.addItem("점수를 등록하는데 실패하였습니다. 다시 시도해주세요.", 1);
-                }
-            });
+            adapter.addItem("정답이 아닙니다. 정답은 "+ans+"번 입니다.",1);
         }
         adapter.notifyDataSetChanged();
+        startQuizTask();
+    }
+
+    public void requestQuizList(){
+        System.out.println("퀴즈 리스트 요청");
+        retrofitClient = new RetrofitClient();
+        RequestGetQuizList requestGetQuizList = new RequestGetQuizList("abc@abc.com");
+        Call<JsonArray> call = retrofitClient.apiService.GetQuizList(requestGetQuizList);
+            try{
+                call.enqueue(new Callback<JsonArray>() {
+                    @Override
+                    public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+                        qlist = response.body();
+                        Log.d("sucessss",qlist.toString());
+                        adapter.addItem("퀴즈를 시작합니다.",1);
+                        startQuizTask();
+                    }
+                    @Override
+                    public void onFailure(Call<JsonArray> call3, Throwable t3) {
+                        Log.d("faillllll",t3.toString());
+                        adapter.addItem("이미 오늘의 퀴즈를 모두 푸셨습니다.",1);
+                    }
+            });
+        }catch (Exception e){
+                e.printStackTrace();
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    public void startQuizTask(){
+        try{
+            if(count<10){
+                String str = (count+1) + "번째 문제입니다. "
+                        + qlist.get(count).getAsJsonObject().get("question").toString() + "\n"
+                        + "1. " + qlist.get(count).getAsJsonObject().get("E1").toString() + "\n"
+                        + "2. " + qlist.get(count).getAsJsonObject().get("E2").toString() + "\n"
+                        + "3. " + qlist.get(count).getAsJsonObject().get("E3").toString() + "\n"
+                        + "4. " + qlist.get(count).getAsJsonObject().get("E4").toString();
+                adapter.addItem(str,1);
+                adapter.notifyDataSetChanged();
+
+                count ++;
+            }else{
+                adapter.addItem("퀴즈를 모두 푸셨습니다. 점수는 "+score+"점 입니다.", 1);
+                adapter.notifyDataSetChanged();
+                //점수 올리기
+                retrofitClient = new RetrofitClient();
+                SendQuizResult sendQuizResult = new SendQuizResult("abc@abc.com", score);
+                Call<JsonObject> call2 = retrofitClient.apiService.SaveScore(sendQuizResult);
+                try{
+                    call2.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            Log.d("sucessss",response.body().toString());
+                            check = true;
+                        }
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("faillllll",t.toString());
+                        }
+                    });
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static class ChatQuizAdapter extends BaseAdapter {
