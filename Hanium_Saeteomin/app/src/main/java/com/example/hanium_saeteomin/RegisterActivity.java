@@ -80,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor = pref2.edit();
                                 editor.putString("userId",et_email.getText().toString());
                                 editor.putString("userName",et_nickname.getText().toString());
-
+                                editor.putString("userPw",et_pw.getText().toString());
                                 editor.commit();
                                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);

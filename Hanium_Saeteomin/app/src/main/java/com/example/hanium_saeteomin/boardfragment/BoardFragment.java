@@ -38,9 +38,6 @@ public class BoardFragment extends Fragment implements clickLike {
     String currentUserName;
     String currentUserId;
 
-    String userName;
-    String userId;
-
     public BoardFragment(){
 
     }
@@ -72,7 +69,7 @@ public class BoardFragment extends Fragment implements clickLike {
 //                int likeCount= FeedList.get(position).getGood_count();
 //                int commentCount = FeedList.get(position).getComment_number();
 //                 userId = FeedList.get(position).getUser_id();
-//                String writeDate = FeedList.get(position).getWrite_date();
+//                String writeDate = FeedfList.get(position).getWrite_date();
 //
 //                FeedData feedData = new FeedData(boardId,userName,url,commentCount,content,likeCount,userId,writeDate);
 
@@ -92,9 +89,10 @@ public class BoardFragment extends Fragment implements clickLike {
                 Intent intent = new Intent(getContext(), BoardWriteActivity.class);
                 intent.putExtra("userId",currentUserId);
                 intent.putExtra("userName",currentUserName);
-                Log.d("user",currentUserId);
-                Log.d("user",currentUserName);
 
+
+                Log.d("buserId", currentUserId);
+                Log.d("buserName", currentUserName);
                 startActivity(intent);
 
             }

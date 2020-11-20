@@ -242,6 +242,8 @@ public class BoardDetailActivity extends AppCompatActivity implements onClickDel
                 intent.putExtra("beforeContent",feedData.getContent());
                 intent.putExtra("update",true);
                 intent.putExtra("boardId",boardId);
+                intent.putExtra("userId",userId);
+                intent.putExtra("userName",userName);
                 startActivityForResult(intent,WRITE_OK);
 
             }

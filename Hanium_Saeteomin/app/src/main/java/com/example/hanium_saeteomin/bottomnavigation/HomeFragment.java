@@ -136,7 +136,7 @@ public class HomeFragment extends Fragment {
         //퀴즈내역
         ArrayList<String> list = new ArrayList<>();
 //        for (int i=0; i<10; i++) {
-        list.add(String.format("가시아버지")) ;
+        list.add(String.format("알쓸신잡")) ;
         list.add(String.format("가즈아")) ;
         list.add(String.format("핑프")) ;
         list.add(String.format("스몸비")) ;

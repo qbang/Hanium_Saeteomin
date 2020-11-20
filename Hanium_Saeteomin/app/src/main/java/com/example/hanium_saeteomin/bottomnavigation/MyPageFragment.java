@@ -77,11 +77,11 @@ public class MyPageFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), LoginActivity.class);
                 startActivity(intent);
-                SharedPreferences pref = getActivity().getSharedPreferences("mine", Activity.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                //editor.clear()는 auto에 들어있는 모든 정보를 기기에서 지웁니다.
-                editor.clear();
-                editor.commit();
+//                SharedPreferences pref = getActivity().getSharedPreferences("user", Activity.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = pref.edit();
+//                //editor.clear()는 auto에 들어있는 모든 정보를 기기에서 지웁니다.
+//                editor.clear();
+//                editor.commit();
                 Toast.makeText(view.getContext(), "로그아웃", Toast.LENGTH_SHORT).show();
 
             }

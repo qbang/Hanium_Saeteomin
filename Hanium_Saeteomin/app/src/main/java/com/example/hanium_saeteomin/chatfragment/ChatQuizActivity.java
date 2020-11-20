@@ -82,7 +82,7 @@ public class ChatQuizActivity extends AppCompatActivity implements Button.OnClic
     public void requestQuizList(){
         System.out.println("퀴즈 리스트 요청");
         retrofitClient = new RetrofitClient();
-        RequestGetQuizList requestGetQuizList = new RequestGetQuizList("abc@abc.com");
+        RequestGetQuizList requestGetQuizList = new RequestGetQuizList("abc@aaa.com");
         Call<JsonArray> call = retrofitClient.apiService.GetQuizList(requestGetQuizList);
             try{
                 call.enqueue(new Callback<JsonArray>() {
@@ -123,7 +123,7 @@ public class ChatQuizActivity extends AppCompatActivity implements Button.OnClic
                 adapter.notifyDataSetChanged();
                 //점수 올리기
                 retrofitClient = new RetrofitClient();
-                SendQuizResult sendQuizResult = new SendQuizResult("abc@abc.com", score);
+                SendQuizResult sendQuizResult = new SendQuizResult("abc@aaa.com", score);
                 Call<JsonObject> call2 = retrofitClient.apiService.SaveScore(sendQuizResult);
                 try{
                     call2.enqueue(new Callback<JsonObject>() {

@@ -22,6 +22,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText et_pw;
     String userId;
     String userName;
+    String userPw;
+    Boolean check= false;
+
     public static String user_id = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,33 +37,28 @@ public class LoginActivity extends AppCompatActivity {
         et_pw = findViewById(R.id.et_pw);
         final CheckBox checkBox = findViewById(R.id.checkbox);
 
-        SharedPreferences pref = getSharedPreferences("mine",MODE_PRIVATE);
+        SharedPreferences pref = getSharedPreferences("user",MODE_PRIVATE);
+        userId= pref.getString("userId", "");
+        userName= pref.getString("userName", "");
+        userPw = pref.getString("userPw", "");
+        Log.d("user",userId);
+        Log.d("user",userName);
+        Log.d("user",userPw);
 
-        if(pref.getBoolean("check",false))
-        {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-//            String id = pref.getString("id","");
-//            String pw = pref.getString("pw","");
-//            Log.d("id",id);
-//            Log.d("pw",pw);
-        }
+        et_id.setText(userId);
+        et_pw.setText(userPw);
 
-        user_id = pref.getString("id","");
-        String pw = pref.getString("pw","");
-        et_id.setText(user_id);
-        et_pw.setText(pw);
-
-        SharedPreferences pref2 = getSharedPreferences("user",MODE_PRIVATE);
-        userId = pref2.getString("userId","");
-        userName = pref2.getString("userName","");
+        check= pref.getBoolean("check", false);
+//        if(check){
+//            Intent intent = new Intent(this,MainActivity.class);
+//            startActivity(intent);
+//        }
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if((et_id.length()==0||et_pw.length()==0)) {
-                    Log.d("login","길이");
                     LoginFailedDialog loginFailedDialog = new LoginFailedDialog(LoginActivity.this);
                     loginFailedDialog.callFunction();
                     loginFailedDialog.setText("아이디와 비밀번호 둘 다 입력해주세요!");
@@ -73,14 +71,14 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                         Log.d("login",response.body().toString());
                         if(response.body().toString().contains("성공")) {
-                            if(checkBox.isChecked()){
+                            if(checkBox.isChecked()){ //자동로그인
                                 setAutoLogin();
                             }
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            intent.putExtra("userId",userId);
-                            intent.putExtra("userName",userName);
-                            startActivity(intent);
+                            intent.putExtra("userId",et_id.getText().toString());
+                            intent.putExtra("userName",et_pw.getText().toString());
 
+                            startActivity(intent);
 
                         }else{
                             LoginFailedDialog loginFailedDialog = new LoginFailedDialog(LoginActivity.this);
@@ -112,13 +110,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void setAutoLogin(){
-        SharedPreferences pref = getSharedPreferences("mine",MODE_PRIVATE);
+        SharedPreferences pref = getSharedPreferences("user",MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putString("id",et_id.getText().toString());
-        editor.putString("pw",et_pw.getText().toString());
+        editor.putString("userId",et_id.toString());
+
         editor.putBoolean("check",true);
-        Log.d("login_id",et_id.getText().toString());
-        Log.d("login_pw",et_pw.getText().toString());
         editor.commit();
     }
 

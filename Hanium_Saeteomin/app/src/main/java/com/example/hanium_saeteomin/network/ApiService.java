@@ -37,7 +37,6 @@ public interface ApiService {
     @POST("comment_write")
     Call<JsonObject> WriteComment(@Body RequestWriteComment body);
 
-    @POST("test")
     @POST("start_question")
     Call<JsonObject> RequestQuizInfo();
 

@@ -25,6 +25,7 @@ import retrofit2.Response;
 public class BoardWriteActivity extends AppCompatActivity {
     String userId;
     String userName;
+    String userPw;
     EditText etContent;
 
     Boolean update;
@@ -42,6 +43,8 @@ public class BoardWriteActivity extends AppCompatActivity {
         userId = getIntent().getStringExtra("userId");
         userName = getIntent().getStringExtra("userName");
 
+        Log.d("wuserId", userId);
+        Log.d("wuserName", userName);
 
         update = getIntent().getBooleanExtra("update",false);
         content = getIntent().getStringExtra("beforeContent");
@@ -93,8 +96,8 @@ public class BoardWriteActivity extends AppCompatActivity {
                 }
                 else {
                     RequestWriteFeed requestWriteFeed = new RequestWriteFeed(userId, userName, etContent.getText().toString());
-//                    Log.d("userId", userId);
-//                    Log.d("userName", userName);
+                    Log.d("wwwuserId", userId);
+                    Log.d("wwwuserName", userName);
 //                    Log.d("useret", etContent.getText().toString());
                     Call<JsonObject> call = retrofitClient.apiService.WriteBoard(requestWriteFeed);
                     call.enqueue(new Callback<JsonObject>() {

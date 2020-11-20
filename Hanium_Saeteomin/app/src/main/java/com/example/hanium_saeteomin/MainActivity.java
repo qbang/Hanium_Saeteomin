@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.hanium_saeteomin.boardfragment.BoardFragment;
@@ -32,11 +34,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences pref2 = getSharedPreferences("user",MODE_PRIVATE);
-        userId = pref2.getString("userId","");
-        userName = pref2.getString("userName","");
 
-        fragment_board = new BoardFragment(userId,userName);
+        Intent intent = getIntent();
+        userId = intent.getStringExtra("userId");
+        userName = intent.getStringExtra("userName");
+
+//        Log.d("muserId", userId);
+//        Log.d("muserName", userName);
+
+        fragment_board = new BoardFragment(userName,userId);
 
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout,fragment_home).commitAllowingStateLoss();
