@@ -4,7 +4,6 @@
 - 참여인원: 4명
 - 시연영상: [https://youtu.be/Gb3ay3D2g8E](https://youtu.be/Gb3ay3D2g8E)
 - 사용기술: `Android` `Flask` `IBM Watson`
-- 깃허브: [https://github.com/qbang/Hanium_Saeteomin](https://github.com/qbang/Hanium_Saeteomin)
 
 ### 한이음 ICT 멘토링 소개
 - https://www.hanium.or.kr/portal/index.do
